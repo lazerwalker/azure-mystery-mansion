@@ -11,19 +11,27 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Azure Mystery Mansion" startnode="1" creator="Twine" creator-version="2.3.3" ifid="89A5D9EC-3A86-4346-AEFD-080DA5AC7F04" zoom="1" format="Harlowe" format-version="3.0.2" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Outside" tags="" position="575,259" size="100,100">You are standing in an open field in front of an old white house. It seems to have been abandoned many years ago.
+<tw-storydata name="Azure Mystery Mansion" startnode="1" creator="Twine" creator-version="2.3.3" ifid="89A5D9EC-3A86-4346-AEFD-080DA5AC7F04" zoom="0.6" format="Harlowe" format-version="3.0.2" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+</script><tw-passagedata pid="1" name="Outside" tags="" position="575,259" size="100,100">You are standing in an open field in front of an old white house. It seems to have been abandoned many years ago.
+
+You hold in your hands an [[envelope]].
 
 There is a small [[mailbox|Mailbox]] here.
 
 On the grass, there is a (link-reveal: &quot;rusty old car.&quot;)[ You jiggle the driver-side handle, but the door is locked. Through the window, you spy a few cassette tapes sitting on the dashboard and some crumpled fast-food bags on the floor. Nothing of use.]
 
-You can climb up the creaky wooden steps to the [[front porch|Front Porch]], or walk around to the [[back of the house|Backyard]].</tw-passagedata><tw-passagedata pid="2" name="Front Porch" tags="" position="500,409" size="100,100">A semi-enclosed front porch.
+You can climb up the creaky wooden steps to the [[front porch|Porch]].</tw-passagedata><tw-passagedata pid="2" name="Porch" tags="" position="501.6666666666667,409" size="100,100">A semi-enclosed front porch.
 
 In front of you is a large set of [[double doors.|Front Door]]
 
 To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted plant|Ferns]].
 
-Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="650,409" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,559" size="100,100">You stare up at an imposing set of double doors.
+Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1231.6666666666667,410.6666666666667" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,560.6666666666666" size="100,100">You stare up at an imposing set of double doors.
 
 Where you would expect to see a keyhole, there is an ornate mechanism with 3 rotating dials. Each dial displays a single number that you can change.
 
@@ -31,23 +39,208 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 
 (event: when $frontDoorFirst is &quot;9&quot; and $frontDoorSecond is &quot;0&quot; and $frontDoorThird is &quot;5&quot;)[You hear a satisfying click sound. (set: $frontDoorOpen to true)]
 
-[[Try the door handle|Front Door Handle]]</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="487,712" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+[[Try the door handle|Front Door Handle]]
 
-(else: )[You pull on the door handle, but it&#39;s locked shut.]</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="487,862" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="7" name="Mailbox" tags="" position="364,411" size="100,100">A few bills, some free magazines, nothing of any importance. Should you really be reading through someone else&#39;s mail?
+[[Go back.|Porch]]
+
+
+TODO: Remove highlight on clicking numbers</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="487,712" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+
+(else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="495,863" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+
+Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]
+
+
+On the wall is a [[painting]]
+
+To the left are two doors leading to an [[office]] and the [[library]].
+
+To the right is the [[dining room]].
+
+At the top of the stairs is a [[hallway]].
+
+Behind the staircase is a small door leading to the [[salon]].</tw-passagedata><tw-passagedata pid="7" name="Mailbox" tags="" position="365,411" size="100,100">A few bills, some free magazines, nothing of any importance. Should you really be reading through someone else&#39;s mail?
 
 Attached to the inside of the mailbox, you spy a (link-reveal: &quot;sticky note.&quot;)[ 
 
-The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody has scribbled the number &quot;3.&quot; and the phrase &quot;number of modules needed to deploy a website to Azure with App Service&quot;. ]</tw-passagedata><tw-passagedata pid="8" name="Christmas Duck)" tags="" position="620,559" size="100,100">The plastic duck has a green wreath and red bow around its neck. How odd.
+The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody has scribbled the number &quot;3.&quot; and the phrase &quot;number of modules needed to deploy a website to Azure with App Service&quot;. ]
+
+[[Go back|Outside]].</tw-passagedata><tw-passagedata pid="8" name="Christmas Duck)" tags="" position="620,559" size="100,100">The plastic duck has a green wreath and red bow around its neck. How odd.
 
 (link: &quot;Pick it up.&quot;)[You pick up the duck, covering your fingers in dust. Attached to the bottom of the duck is a (link-reveal: &quot;sticky note.&quot;)[ 
 
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled the number &quot;1.&quot; and the phrase &quot;number of available roles&quot;. ]]
-</tw-passagedata><tw-passagedata pid="9" name="Lounge Chairs" tags="" position="380,559" size="100,100">They&#39;re covered in cobwebs. Best leave these for the spiders to sit in.</tw-passagedata><tw-passagedata pid="10" name="Ferns" tags="" position="740,559" size="100,100">For how abandoned the house looks, the plants appear to be thriving.
+
+[[Go back|Porch]].</tw-passagedata><tw-passagedata pid="9" name="Lounge Chairs" tags="" position="380,559" size="100,100">They&#39;re covered in cobwebs. Best leave these for the spiders to sit in.
+
+[[Go back|Porch]].</tw-passagedata><tw-passagedata pid="10" name="Ferns" tags="" position="740,559" size="100,100">For how abandoned the house looks, the plants appear to be thriving.
 
 Nestled into the dirt of one of them, you see what appears to be the corner of a (link-reveal: &quot;sticky note.&quot;)[
 
 After pulling it out and wiping the dirt off, you see that the sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled the number &quot;2.&quot; and the phrase &quot;cost to use MS Learn&quot;. ]
-</tw-passagedata></tw-storydata>
+
+[[Go back|Porch]].</tw-passagedata><tw-passagedata pid="11" name="painting" tags="" position="306,940.6666666666666" size="100,100">A faded oil painting with a gaunt-looking family.
+
+Their eyes appear to follow you as you walk around the room.
+
+Stuck on the bottom corner of the painting is a (link-reveal: &quot;sticky note.&quot;)[ 
+
+The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the text &quot;which app IDEs (Integrated Developer Environments) are supported on Azure?&quot; and a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/modules/prepare-your-dev-environment-for-azure-development/index&quot;&gt;URL&lt;/a&gt;.]
+
+Underneath each of the four portraits is a push-button and a label.
+
+(cycling-link: bind $eclipse, &quot;Eclipse (unpressed)&quot;, &quot;Eclipse (pressed)&quot;) 
+(cycling-link: bind $intellij, &quot;IntelliJ IDEA (unpressed)&quot;, &quot;IntelliJ IDEA (pressed)&quot;)
+(cycling-link: bind $vscode, &quot;Visual Studio Code (unpressed)&quot;, &quot;Visual Studio Code (pressed)&quot;)
+(cycling-link: bind $vs, &quot;Visual Studio (unpressed)&quot;, &quot;Visual Studio (pressed)&quot;)
+
+
+(event: when $eclipse is &quot;Eclipse (pressed)&quot; and $intellij is &quot;IntelliJ IDEA (pressed)&quot; and $vscode is &quot;Visual Studio Code (pressed)&quot; and $vs is &quot;Visual Studio (pressed)&quot;)[With a loud creak, the painting swings towards you to reveal a secret compartment in the wall!
+
+Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $goldenKey to true) You take it. You now have $numKeys keys.]]
+
+[[Go back|Foyer]].</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="706.6666666666666,914" size="100,100">On the desk is a (link-reveal: &quot;computer.&quot;)[
+ 
+ It&#39;s a big beige box with an old CRT screen.
+ 
+ There are a few icons on the desktop. A trash can, and icons saying &quot;GitHub&quot;, &quot;Azure DevOps&quot;, &quot;SharePoint&quot;, and &quot;Dropbox&quot;.
+ 
+(set: $githubInTrash to false)(set: $azureInTrash to false)(set: $sharepointInTrash to false)(set: $dropboxInTrash to false)
+
+ (link: &quot;Drag \&quot;GitHub\&quot; to trash can&quot;)[(set: $githubInTrash to true)]
+ (link: &quot;Drag \&quot;Azure DevOps\&quot; to trash can&quot;)[(set: $azureInTrash to true)]
+ (link: &quot;Drag \&quot;SharePoint\&quot; to trash can&quot;)[(set: $sharepointInTrash to true)]
+ (link: &quot;Drag \&quot;Dropbox\&quot; to trash can&quot;)[(set: $dropboxInTrash to true)]
+ (link: &quot;Click \&quot;Put Back Trash\&quot; button&quot;)[(set: $githubInTrash to false)(set: $azureInTrash to false)(set: $sharepointInTrash to false)(set: $dropboxInTrash to false)]
+ 
+ Sticking to the bottom of the monitor is a (link-reveal: &quot;sticky note.&quot;)[
+ 
+ 
+ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the text &quot;delete all invalid automated deployment sources&quot; and a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/modules/host-a-web-app-with-azure-app-service/index&quot;&gt;URL&lt;/a&gt;. ]
+]
+
+(event: when $githubInTrash is false and $azureInTrash is false and $sharepointInTrash is true and $dropboxInTrash is false)[A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (link-reveal: &quot;blue key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $blueKey to true) You take it. You now have $numKeys keys.]
+
+The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.]
+
+[[Go back|Foyer]].
+
+TODO: 
+* Remove whitespace after doing a thing.
+* Display who&#39;s in the trash
+* Can re-press after emptying trash (research Twine arrays)</tw-passagedata><tw-passagedata pid="13" name="completed computer" tags="" position="708,1064" size="100,100">A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (BLUE KEY). 
+
+The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.</tw-passagedata><tw-passagedata pid="14" name="hallway" tags="" position="494,1013" size="100,100">A door leads to a [[child&#39;s bedroom]].
+
+An unstable-looking ladder leads up to a locked attic panel with [[8 keyholes|attic door]].
+
+[[go back down|Foyer]].</tw-passagedata><tw-passagedata pid="15" name="child&#39;s bedroom" tags="" position="495,1161.3333333333333" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
+
+Some toys lay strewn across the floor.
+
+(cycling-link: bind $firstToy, &quot;Put \&quot;push notifications\&quot; alphabet blocks in toychest.&quot;, &quot;Take \&quot;push notifications\&quot; alphabet blocks out of toychest.&quot;) 
+(cycling-link: bind $secondToy, &quot;Put \&quot;offline sync\&quot; teddy bear in toychest.&quot;, &quot;Take \&quot;offline sync\&quot; teddy bear out of toychest.&quot;)
+(cycling-link: bind $thirdToy, &quot;Put \&quot;authentication\&quot; labyrinth in toychest&quot;, &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)
+
+On top of the open toychest is a (link-reveal: &quot;sticky note.&quot;)[
+
+The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the question &quot;Which features of Mobile Apps for Azure App Service might you use to build a mobile chat application that lets users create profiles, add friends, and send messages to contacts?&quot; along with a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/modules/intro-to-mobile-app-service/ &quot;&gt;URL&lt;/a&gt;. 
+]
+
+
+(event: when $firstToy is &quot;Take \&quot;push notifications\&quot; alphabet blocks out of toychest.&quot; and $secondToy is &quot;Take \&quot;offline sync\&quot; teddy bear out of toychest.&quot; and $thirdToy is &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)[As you drop the third toy in the chest, you notice something you&#39;re fairly sure wasn&#39;t there before. It&#39;s a (link-reveal: &quot;green key!&quot;)[(set: $numKeys to $numKeys + 1)(set: $greenKey to true) You take it. You now have $numKeys keys.]]
+
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="16" name="library" tags="" position="880,929" size="100,100">Books line the walls.
+
+On a large mahogany desk lies a vintage (link-reveal: &quot;typewriter.&quot;)[
+	Somebody has typed part a sentence on a sheet of paper, but three words are missing. It looks like you can fill them in.
+	
+	&quot;Azure Container Registry enables you to store (link: &quot;________&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter1)$typewriter1] images in the cloud, in an Azure storage account. (link: &quot;________&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter2)$typewriter2] is an important reason to choose Container Registry instead of Docker Hub. Container Registry is highly (link: &quot;________&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter3)$typewriter3], providing enhanced throughput for Docker pulls that can span many nodes concurrently. &quot;
+].
+
+Next to the typewriter is a (link-reveal: &quot;sticky note.&quot;)[ 
+
+The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/modules/deploy-run-container-app-service/index&quot;&gt;URL&lt;/a&gt;. ]
+
+
+(event: when $typewriter1 is &quot;Docker&quot; and $typewriter2 is &quot;Security&quot; and $typewriter3 is &quot;scalable&quot;)[You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
+
+Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (link-reveal: &quot;emerald key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $emeraldKey to true) You take it. You now have $numKeys keys.]]]
+
+[[Go back|Foyer]].
+
+TODO: 
+* Allow repeat editing
+* Case insensitive</tw-passagedata><tw-passagedata pid="17" name="completed typewriter" tags="" position="937,1079" size="100,100">There&#39;You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
+
+Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (EMERALD KEY).
+
+]</tw-passagedata><tw-passagedata pid="18" name="dining room" tags="" position="101,919.6666666666666" size="100,100">A resplendent feast is set on a long dining table that seems to go on for miles.
+
+There are plates and bowls full of delicious food: a platter of sliced (prime rib), a crisp and fresh (green salad), and (boiled potatoes) dripping with butter.
+
+Above the dining table is an elaborate chandelier with dozens of candles dimly illuminating the room. They seem to be arranged in a (link-reveal: &quot;peculiar arrangement.&quot;)[
+
+The candles are grouped into clusters of 8. Within each cluster, some candles are lit and some are not.
+
+A &quot;0&quot; represents an unlit candle, and a &quot;1&quot; a lit candle.
+
+01000110 01001111 01010101 01010010 
+01010000 01001111 01010100 01000001 
+01010100 01001111 01000101 01010011
+
+]
+
+
+At the head of the table is a (link-reveal: &quot;sticky note.&quot;)[ 
+
+The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. There&#39;s a note scribbled on it: &quot;What food should I put on this plate? I&#39;m so bad at making binary choices like this, maybe something in the room will light the way for me.&quot; ]
+
+(event: when $numPotatoes is 4)[As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: &quot;red key?&quot;)[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]
+
+[[Go back|Foyer]].
+
+* Clicking a food adds it to your inventory
+* Show your inventory
+</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1099,911" size="100,100">A small, but tastefully designed, waiting room.
+
+Next to a very ornate couch is a table with a vintage rotary telephone on it.
+
+1 2 3
+4 5 6
+7 8 9
+  0
+  
+  
+You have entered $value.
+
+You can also (hang up).
+
+
+On the table is a (link-reveal: &quot;sticky note.&quot;)[
+
+The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. There&#39;s some text scribbled on it: &quot;I can never remember the right phone number to call! I must write myself a computer program to recall it, it&#39;s just Pi to the first ten decimal places.&quot;
+]
+
+[[Go back|Foyer]].
+
+PUZZLE: Players must dial &quot;31415926536&quot; on the phone to reveal the [[solution|solved phone]].
+
+
+TODO:
+* Numbers are repressable links
+* Pressing a number appends to the listed value
+* When the correct value has been entered, auto-proceed
+* &#39;hang up&#39; wipes out variable
+* Make it look like a rotary phone?</tw-passagedata><tw-passagedata pid="21" name="solved phone" tags="" position="1099,1061" size="100,100">You hear an unearthly noise, and then the phone line immediately goes dead.
+
+A drawer opens on the endtable the phone is standing on, revealing a (ROSE KEY).
+
+</tw-passagedata><tw-passagedata pid="22" name="attic door" tags="" position="761,1247" size="100,100">You only have $numKeys keys. You need 8.</tw-passagedata><tw-passagedata pid="23" name="envelope" tags="" position="841.3333333333334,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+
+Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.
+
+[[Go back|Outside]].</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
