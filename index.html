@@ -108,7 +108,7 @@ On the grass, there is a (link-reveal: &quot;rusty old car.&quot;)[ You jiggle t
 
 You can climb up the creaky wooden steps to the [[front porch|Porch]].
 
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Porch" tags="" position="501,409" size="100,100">A semi-enclosed front porch.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Porch" tags="" position="500,400" size="100,100">A semi-enclosed front porch.
 
 In front of you is a large set of [[double doors.|Front Door]]
 
@@ -116,7 +116,7 @@ To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted
 
 Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].
 
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="501,560" size="100,100">You stare up at an imposing set of double doors.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
 
 Where you would expect to see a keyhole, there is an ornate mechanism with 3 rotating dials. Each dial displays a single number that you can change.
 
@@ -129,14 +129,14 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 [[Go back.|Porch]]
 
 
-TODO: Remove highlight on clicking numbers</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="487,712" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+TODO: Remove highlight on clicking numbers</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="475,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
 
-(else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="495,863" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+(else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
 
 Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]
 
 
-On the wall is a [[painting]]
+On the wall is a [[painting]].
 
 To the left are two doors leading to an [[office]] and the [[library]].
 
@@ -166,7 +166,7 @@ Nestled into the dirt of one of them, you see what appears to be the corner of a
 
 After pulling it out and wiping the dirt off, you see that the sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled the number &quot;2.&quot; and the phrase &quot;cost to use MS Learn&quot;. ]
 
-[[Go back|Porch]].</tw-passagedata><tw-passagedata pid="11" name="painting" tags="" position="306,940" size="100,100">A faded oil painting with a gaunt-looking family.
+[[Go back|Porch]].</tw-passagedata><tw-passagedata pid="11" name="painting" tags="" position="300,950" size="100,100">A faded oil painting with a gaunt-looking family.
 
 Their eyes appear to follow you as you walk around the room.
 
@@ -186,7 +186,7 @@ Underneath each of the four portraits is a push-button and a label.
 
 Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $goldenKey to true) You take it. You now have $numKeys keys.]]
 
-[[Go back|Foyer]].</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="702.6666666666667,914" size="100,100">On the desk is a (link-reveal: &quot;computer.&quot;)[
+[[Go back|Foyer]].</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="700,925" size="100,100">On the desk is a (link-reveal: &quot;computer.&quot;)[
  
  It&#39;s a big beige box with an old CRT screen.
  
@@ -242,7 +242,11 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 
 (event: when $firstToy is &quot;Take \&quot;push notifications\&quot; alphabet blocks out of toychest.&quot; and $secondToy is &quot;Take \&quot;offline sync\&quot; teddy bear out of toychest.&quot; and $thirdToy is &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)[As you drop the third toy in the chest, you notice something you&#39;re fairly sure wasn&#39;t there before. It&#39;s a (link-reveal: &quot;green key!&quot;)[(set: $numKeys to $numKeys + 1)(set: $greenKey to true) You take it. You now have $numKeys keys.]]
 
-[[go back|hallway]].</tw-passagedata><tw-passagedata pid="16" name="library" tags="" position="880,929" size="100,100">Books line the walls.
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="16" name="library" tags="" position="875,925" size="100,100">You try the library door, but it is locked.
+
+[[Go back|Foyer]].
+
+&lt;!-- Books line the walls.
 
 On a large mahogany desk lies a vintage (link-reveal: &quot;typewriter.&quot;)[
 	Somebody has typed part a sentence on a sheet of paper, but three words are missing. It looks like you can fill them in.
@@ -263,11 +267,18 @@ Pulling it out and holding it in your hands, you realize it isn&#39;t a real boo
 
 TODO: 
 * Allow repeat editing
-* Case insensitive</tw-passagedata><tw-passagedata pid="17" name="completed typewriter" tags="" position="937,1079" size="100,100">There&#39;You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
+* Case insensitive
+
+--&gt;</tw-passagedata><tw-passagedata pid="17" name="completed typewriter" tags="" position="937,1079" size="100,100">There&#39;You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
 
 Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (EMERALD KEY).
 
-]</tw-passagedata><tw-passagedata pid="18" name="dining room" tags="" position="101,919" size="100,100">A resplendent feast is set on a long dining table that seems to go on for miles.
+]</tw-passagedata><tw-passagedata pid="18" name="dining room" tags="" position="100,925" size="100,100">You try the dining room door, but it is locked.
+
+[[Go back|Foyer]].
+
+&lt;!-- 
+A resplendent feast is set on a long dining table that seems to go on for miles.
 
 There are plates and bowls full of delicious food: a platter of sliced (prime rib), a crisp and fresh (green salad), and (boiled potatoes) dripping with butter.
 
@@ -294,7 +305,11 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; class=&qu
 
 * Clicking a food adds it to your inventory
 * Show your inventory
-</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1099,911" size="100,100">A small, but tastefully designed, waiting room.
+--&gt;</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1100,900" size="100,100">You try the salon door, but it is locked.
+
+[[Go back|Foyer]].
+
+&lt;!-- A small, but tastefully designed, waiting room.
 
 Next to a very ornate couch is a table with a vintage rotary telephone on it.
 
@@ -324,7 +339,8 @@ TODO:
 * Pressing a number appends to the listed value
 * When the correct value has been entered, auto-proceed
 * &#39;hang up&#39; wipes out variable
-* Make it look like a rotary phone?</tw-passagedata><tw-passagedata pid="21" name="solved phone" tags="" position="1099,1061" size="100,100">You hear an unearthly noise, and then the phone line immediately goes dead.
+* Make it look like a rotary phone?
+--&gt;</tw-passagedata><tw-passagedata pid="21" name="solved phone" tags="" position="1099,1061" size="100,100">You hear an unearthly noise, and then the phone line immediately goes dead.
 
 A drawer opens on the endtable the phone is standing on, revealing a (ROSE KEY).
 
