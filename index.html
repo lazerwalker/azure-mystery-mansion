@@ -98,7 +98,7 @@ $(function () {
         }
     )
 })
-</script><tw-passagedata pid="1" name="Outside" tags="" position="575,259" size="100,100">You are standing in an open field in front of an old white house. It seems to have been abandoned many years ago.
+</script><tw-passagedata pid="1" name="Outside" tags="" position="575,250" size="100,100">You are standing in an open field in front of an old white house. It seems to have been abandoned many years ago.
 
 You hold in your hands an [[envelope]].
 
@@ -116,6 +116,7 @@ To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted
 
 Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].
 
+[[Go back outside.|Outside]]
 &lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
 
 Where you would expect to see a keyhole, there is an ornate mechanism with 3 rotating dials. Each dial displays a single number that you can change.
@@ -126,10 +127,7 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 
 [[Try the door handle|Front Door Handle]]
 
-[[Go back.|Porch]]
-
-
-TODO: Remove highlight on clicking numbers</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="475,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+[[Go back.|Porch]]</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="475,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
 
 (else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
 
