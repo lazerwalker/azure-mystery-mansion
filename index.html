@@ -102,7 +102,7 @@ $(function () {
         }
     )
 })
-</script><tw-passagedata pid="1" name="Outside" tags="" position="575,250" size="100,100">You are standing in an open field in front of an old white house. It seems to have been abandoned many years ago.
+</script><tw-passagedata pid="1" name="Outside" tags="" position="575,250" size="100,100">You are standing in an open field in front of an old brick house. It seems to have been abandoned many years ago.
 
 You hold in your hands an [[envelope]].
 
@@ -112,31 +112,35 @@ On the grass, there is a (link-reveal: &quot;rusty old car.&quot;)[ You jiggle t
 
 You can climb up the creaky wooden steps to the [[front porch|Porch]].
 
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Porch" tags="" position="500,400" size="100,100">A semi-enclosed front porch.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Porch" tags="" position="500,400" size="100,100">A rickety front porch.
 
-In front of you is a large set of [[double doors.|Front Door]]
+In front of you is a large [[door.|Front Door]]
 
-To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted plant|Ferns]].
+To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted plants|Ferns]].
 
 Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].
 
-[[Go back outside.|Outside]]
+[[Go back down the stairs.|Outside]]
 &lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
 
 Where you would expect to see a keyhole, there is an ornate mechanism with 3 rotating dials. Each dial displays a single number that you can change.
 
-(cycling-link: bind $frontDoorFirst, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;0&quot;) (cycling-link: bind $frontDoorSecond, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;0&quot;) (cycling-link: bind $frontDoorThird, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;0&quot;)
+(cycling-link: bind $frontDoorFirst, &quot;0&quot;,&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;) (cycling-link: bind $frontDoorSecond, &quot;0&quot;,&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;) (cycling-link: bind $frontDoorThird, &quot;0&quot;,&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;)
 
-(event: when $frontDoorFirst is &quot;9&quot; and $frontDoorSecond is &quot;0&quot; and $frontDoorThird is &quot;5&quot;)[You hear a satisfying click sound. (set: $frontDoorOpen to true)]
+(event: when $frontDoorFirst is &quot;10&quot; and $frontDoorSecond is &quot;0&quot; and $frontDoorThird is &quot;6&quot;)[You hear a satisfying click sound. (set: $frontDoorOpen to true)]
 
 [[Try the door handle|Front Door Handle]]
 
-[[Go back.|Porch]]</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="475,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+[[Go back.|Porch]]
 
-(else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,873.3333333333334" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
-(unless: $silverKey is true)[
-Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]
-]
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="475,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+
+(else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]
+
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+
+(unless: $silverKey is true)[Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]]
+
 On the wall is a [[painting]].
 
 To the left are two doors leading to an [[office]] and the [[library]].
@@ -149,33 +153,40 @@ Behind the staircase is a small door leading to the [[salon]].
 
 &lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="Mailbox" tags="" position="365,411" size="100,100">A few bills, some free magazines, nothing of any importance. Should you really be reading through someone else&#39;s mail?
 
-Attached to the inside of the mailbox, you spy a (link-reveal: &quot;sticky note.&quot;)[ 
+Looking inside the mailbox, you spy a (link-reveal: &quot;sticky note.&quot;)[ 
 
 The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody has scribbled the number &quot;3.&quot; and the phrase &quot;number of modules needed to deploy a website to Azure with App Service&quot;. ]
 
-[[Go back|Outside]].</tw-passagedata><tw-passagedata pid="8" name="Christmas Duck)" tags="" position="620,559" size="100,100">The plastic duck has a green wreath and red bow around its neck. How odd.
+[[Go back|Outside]].
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="8" name="Christmas Duck)" tags="" position="620,559" size="100,100">The plastic duck has a green wreath and red bow around its neck. How odd.
 
 (link: &quot;Pick it up.&quot;)[You pick up the duck, covering your fingers in dust. Attached to the bottom of the duck is a (link-reveal: &quot;sticky note.&quot;)[ 
 
 The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled the number &quot;1.&quot; and the phrase &quot;number of available roles&quot;. ]]
 
-[[Go back|Porch]].</tw-passagedata><tw-passagedata pid="9" name="Lounge Chairs" tags="" position="380,559" size="100,100">They&#39;re covered in cobwebs. Best leave these for the spiders to sit in.
+[[Go back|Porch]].
 
-[[Go back|Porch]].</tw-passagedata><tw-passagedata pid="10" name="Ferns" tags="" position="740,559" size="100,100">For how abandoned the house looks, the plants appear to be thriving.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="Lounge Chairs" tags="" position="380,559" size="100,100">They&#39;re covered in cobwebs. Best leave these for the spiders to sit in.
+
+[[Go back|Porch]].
+
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="Ferns" tags="" position="740,559" size="100,100">For how abandoned the house looks, the plants appear to be thriving.
 
 Nestled into the dirt of one of them, you see what appears to be the corner of a (link-reveal: &quot;sticky note.&quot;)[
 
 After pulling it out and wiping the dirt off, you see that the sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled the number &quot;2.&quot; and the phrase &quot;cost to use MS Learn&quot;. ]
 
-[[Go back|Porch]].</tw-passagedata><tw-passagedata pid="11" name="painting" tags="" position="300,950" size="100,100">A faded oil painting with a gaunt-looking family.
+[[Go back|Porch]].
 
-Their eyes appear to follow you as you walk around the room.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="painting" tags="" position="300,950" size="100,100">A faded oil painting with a gaunt-looking person.
+
+His eyes appear to follow you as you walk around the room.
 
 Stuck on the bottom corner of the painting is a (link-reveal: &quot;sticky note.&quot;)[ 
 
 The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the text &quot;which app IDEs (Integrated Developer Environments) are supported on Azure?&quot; and a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/learn/modules/prepare-your-dev-environment-for-azure-development/index?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;URL&lt;/a&gt;.]
 
-Underneath each of the four portraits is a push-button and a label.
+Next to the painting is a set of buttons.
 
 (cycling-link: bind $eclipse, &quot;Eclipse (unpressed)&quot;, &quot;Eclipse (pressed)&quot;) 
 (cycling-link: bind $intellij, &quot;IntelliJ IDEA (unpressed)&quot;, &quot;IntelliJ IDEA (pressed)&quot;)
@@ -183,40 +194,35 @@ Underneath each of the four portraits is a push-button and a label.
 (cycling-link: bind $vs, &quot;Visual Studio (unpressed)&quot;, &quot;Visual Studio (pressed)&quot;)
 
 
-(event: when $eclipse is &quot;Eclipse (pressed)&quot; and $intellij is &quot;IntelliJ IDEA (pressed)&quot; and $vscode is &quot;Visual Studio Code (pressed)&quot; and $vs is &quot;Visual Studio (pressed)&quot;)[With a loud creak, the painting swings towards you to reveal a secret compartment in the wall!
+(unless: $goldenKey is true)[(event: when $eclipse is &quot;Eclipse (pressed)&quot; and $intellij is &quot;IntelliJ IDEA (pressed)&quot; and $vscode is &quot;Visual Studio Code (pressed)&quot; and $vs is &quot;Visual Studio (pressed)&quot;)[With a loud creak, the painting swings towards you to reveal a secret compartment in the wall!
 
-(unless: $goldenKey is true)[Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $goldenKey to true) You take it. You now have $numKeys keys.]]]
+Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $goldenKey to true) You take it. You now have $numKeys keys.]]]
 
-[[Go back|Foyer]].</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="700,925" size="100,100">On the desk is a (link-reveal: &quot;computer.&quot;)[
+[[Go back|Foyer]].
+
+&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="700,925" size="100,100">A dusty office with aging furniture.
+
+On the desk is a (link-reveal: &quot;computer.&quot;)[
  
  It&#39;s a big beige box with an old CRT screen.
  
  There are a few icons on the desktop. A trash can, and icons saying &quot;GitHub&quot;, &quot;Azure DevOps&quot;, &quot;SharePoint&quot;, and &quot;Dropbox&quot;.
  
-(set: $githubInTrash to false)(set: $azureInTrash to false)(set: $sharepointInTrash to false)(set: $dropboxInTrash to false)
-
- (link: &quot;Drag \&quot;GitHub\&quot; to trash can&quot;)[(set: $githubInTrash to true)]
- (link: &quot;Drag \&quot;Azure DevOps\&quot; to trash can&quot;)[(set: $azureInTrash to true)]
- (link: &quot;Drag \&quot;SharePoint\&quot; to trash can&quot;)[(set: $sharepointInTrash to true)]
- (link: &quot;Drag \&quot;Dropbox\&quot; to trash can&quot;)[(set: $dropboxInTrash to true)]
- (link: &quot;Click \&quot;Put Back Trash\&quot; button&quot;)[(set: $githubInTrash to false)(set: $azureInTrash to false)(set: $sharepointInTrash to false)(set: $dropboxInTrash to false)]
+(cycling-link: bind $githubInTrash, &quot;Drag GitHub to Trash&quot;, &quot;Restore GitHub from Trash&quot;) 
+(cycling-link: bind $devopsInTrash, &quot;Drag Azure DevOps to Trash&quot;, &quot;Restore Azure DevOps from Trash&quot;)
+(cycling-link: bind $sharepointInTrash, &quot;Drag SharePoint to Trash&quot;, &quot;Restore SharePoint from Trash&quot;)
+(cycling-link: bind $dropboxInTrash, &quot;Drag Dropbox to Trash&quot;, &quot;Restore Dropbox from Trash&quot;)
  
  Sticking to the bottom of the monitor is a (link-reveal: &quot;sticky note.&quot;)[
  
- 
  The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the text &quot;delete all invalid automated deployment sources&quot; and a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/learn/modules/host-a-web-app-with-azure-app-service/index?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;URL&lt;/a&gt;. ]
-](unless: $blueKey is true)[
+]
+(unless: $blueKey is true)[
+(event: when $githubInTrash is &quot;Drag GitHub to Trash&quot; and $devopsInTrash is &quot;Drag Azure DevOps to Trash&quot; and $sharepointInTrash is &quot;Restore SharePoint from Trash&quot; and $dropboxInTrash is &quot;Restore Dropbox from Trash&quot;)[A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (link-reveal: &quot;blue key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $blueKey to true) You take it. You now have $numKeys keys.]
 
-(event: when $githubInTrash is false and $azureInTrash is false and $sharepointInTrash is true and $dropboxInTrash is false)[A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (link-reveal: &quot;blue key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $blueKey to true) You take it. You now have $numKeys keys.]
-
-]The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.]
+The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.]]
 
 [[Go back|Foyer]].
-
-TODO: 
-* Remove whitespace after doing a thing.
-* Display who&#39;s in the trash
-* Can re-press after emptying trash (research Twine arrays)
 
 &lt;script&gt;changeImage(&quot;office&quot;)&lt;/script&gt;
 </tw-passagedata><tw-passagedata pid="13" name="completed computer" tags="" position="708,1064" size="100,100">A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (BLUE KEY). 
@@ -259,11 +265,14 @@ Next to the typewriter is a (link-reveal: &quot;sticky note.&quot;)[
 
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/modules/deploy-run-container-app-service/index&quot; class=&quot;enchantment-link&quot;&gt;URL&lt;/a&gt;. ]
 
-(unless: $emeraldKey is true)[(event: when $typewriter1 is &quot;Docker&quot; and $typewriter2 is &quot;Security&quot; and $typewriter3 is &quot;scalable&quot;)[You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
+
+(event: when $typewriter1 is &quot;Docker&quot; and $typewriter2 is &quot;Security&quot; and $typewriter3 is &quot;scalable&quot;)[You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
 
 Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (link-reveal: &quot;emerald key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $emeraldKey to true) You take it. You now have $numKeys keys.]]]
 
-][[Go back|Foyer]].
+[[Go back|Foyer]].
+
+&lt;script&gt;changeImage(&quot;library&quot;)&lt;/script&gt;
 
 TODO: 
 * Allow repeat editing
@@ -299,14 +308,15 @@ At the head of the table is a (link-reveal: &quot;sticky note.&quot;)[
 
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. There&#39;s a note scribbled on it: &quot;What food should I put on this plate? I&#39;m so bad at making binary choices like this, maybe something in the room will light the way for me.&quot; ]
 
-(unless: $redKey is true)[
-(event: when $numPotatoes is 4)[As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: &quot;red key?&quot;)[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]]
+(unless: $redKey is true)[(event: when $numPotatoes is 4)[As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: &quot;red key?&quot;)[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]]
 
 [[Go back|Foyer]].
 
 * Clicking a food adds it to your inventory
 * Show your inventory
---&gt;</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1100,900" size="100,100">You try the salon door, but it is locked.
+--&gt;
+
+&lt;script&gt;changeImage(&quot;diningroom&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1100,900" size="100,100">You try the salon door, but it is locked.
 
 [[Go back|Foyer]].
 
@@ -332,6 +342,8 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 
 [[Go back|Foyer]].
 
+&lt;script&gt;changeImage(&quot;salon&quot;)&lt;/script&gt;
+
 PUZZLE: Players must dial &quot;31415926536&quot; on the phone to reveal the [[solution|solved phone]].
 
 
@@ -345,11 +357,15 @@ TODO:
 
 A drawer opens on the endtable the phone is standing on, revealing a (ROSE KEY).
 
-</tw-passagedata><tw-passagedata pid="22" name="attic door" tags="" position="761,1247" size="100,100">You only have $numKeys keys. You need 8.</tw-passagedata><tw-passagedata pid="23" name="envelope" tags="" position="842.6666666666666,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+&lt;script&gt;changeImage(&quot;salon&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="attic door" tags="" position="761,1247" size="100,100">You only have $numKeys keys. You need 8.
 
-Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="23" name="envelope" tags="" position="841,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
 
-[[Go back|Outside]].</tw-passagedata><tw-passagedata pid="24" name="Privacy Note" tags="footer" position="725,125" size="100,100">&lt;footer&gt;&lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;http://go.microsoft.com/fwlink/?LinkId=521839&quot;&gt;Privacy and Cookies&lt;/a&gt;&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="25" name="Image" tags="header" position="900,125" size="100,100">&lt;img id=&quot;image&quot; /&gt;</tw-passagedata></tw-storydata>
+(unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
+
+[[Go back|Outside]].
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="24" name="Privacy Note" tags="footer" position="725,125" size="100,100">&lt;hr/&gt;&lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;http://go.microsoft.com/fwlink/?LinkId=521839&quot;&gt;Privacy and Cookies&lt;/a&gt;</tw-passagedata><tw-passagedata pid="25" name="Image" tags="header" position="900,125" size="100,100">&lt;h2&gt;Welcome to the Azure Mystery Mansion&lt;/h2&gt;
+&lt;img id=&quot;image&quot; /&gt;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
