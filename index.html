@@ -133,11 +133,10 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 
 [[Go back.|Porch]]</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="475,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
 
-(else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
-
+(else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,873.3333333333334" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+(unless: $silverKey is true)[
 Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]
-
-
+]
 On the wall is a [[painting]].
 
 To the left are two doors leading to an [[office]] and the [[library]].
@@ -186,7 +185,7 @@ Underneath each of the four portraits is a push-button and a label.
 
 (event: when $eclipse is &quot;Eclipse (pressed)&quot; and $intellij is &quot;IntelliJ IDEA (pressed)&quot; and $vscode is &quot;Visual Studio Code (pressed)&quot; and $vs is &quot;Visual Studio (pressed)&quot;)[With a loud creak, the painting swings towards you to reveal a secret compartment in the wall!
 
-Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $goldenKey to true) You take it. You now have $numKeys keys.]]
+(unless: $goldenKey is true)[Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $goldenKey to true) You take it. You now have $numKeys keys.]]]
 
 [[Go back|Foyer]].</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="700,925" size="100,100">On the desk is a (link-reveal: &quot;computer.&quot;)[
  
@@ -206,11 +205,11 @@ Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $nu
  
  
  The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the text &quot;delete all invalid automated deployment sources&quot; and a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/learn/modules/host-a-web-app-with-azure-app-service/index?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;URL&lt;/a&gt;. ]
-]
+](unless: $blueKey is true)[
 
 (event: when $githubInTrash is false and $azureInTrash is false and $sharepointInTrash is true and $dropboxInTrash is false)[A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (link-reveal: &quot;blue key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $blueKey to true) You take it. You now have $numKeys keys.]
 
-The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.]
+]The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.]
 
 [[Go back|Foyer]].
 
@@ -222,7 +221,7 @@ TODO:
 &lt;script&gt;changeImage(&quot;office&quot;)&lt;/script&gt;
 </tw-passagedata><tw-passagedata pid="13" name="completed computer" tags="" position="708,1064" size="100,100">A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (BLUE KEY). 
 
-The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.</tw-passagedata><tw-passagedata pid="14" name="hallway" tags="" position="494,1016.3333333333333" size="100,100">A door leads to a [[child&#39;s bedroom]].
+The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.</tw-passagedata><tw-passagedata pid="14" name="hallway" tags="" position="494,1016" size="100,100">A door leads to a [[child&#39;s bedroom]].
 
 An unstable-looking ladder leads up to a locked attic panel with [[8 keyholes|attic door]].
 
@@ -242,7 +241,7 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 &lt;script&gt;changeImage(&quot;bedroom&quot;)&lt;/script&gt;
 
 
-(event: when $firstToy is &quot;Take \&quot;push notifications\&quot; alphabet blocks out of toychest.&quot; and $secondToy is &quot;Take \&quot;offline sync\&quot; teddy bear out of toychest.&quot; and $thirdToy is &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)[As you drop the third toy in the chest, you notice something you&#39;re fairly sure wasn&#39;t there before. It&#39;s a (link-reveal: &quot;green key!&quot;)[(set: $numKeys to $numKeys + 1)(set: $greenKey to true) You take it. You now have $numKeys keys.]]
+(unless: $greenKey is true)[(event: when $firstToy is &quot;Take \&quot;push notifications\&quot; alphabet blocks out of toychest.&quot; and $secondToy is &quot;Take \&quot;offline sync\&quot; teddy bear out of toychest.&quot; and $thirdToy is &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)[As you drop the third toy in the chest, you notice something you&#39;re fairly sure wasn&#39;t there before. It&#39;s a (link-reveal: &quot;green key!&quot;)[(set: $numKeys to $numKeys + 1)(set: $greenKey to true) You take it. You now have $numKeys keys.]]]
 
 [[go back|hallway]].</tw-passagedata><tw-passagedata pid="16" name="library" tags="" position="875,925" size="100,100">You try the library door, but it is locked.
 
@@ -260,12 +259,11 @@ Next to the typewriter is a (link-reveal: &quot;sticky note.&quot;)[
 
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/modules/deploy-run-container-app-service/index&quot; class=&quot;enchantment-link&quot;&gt;URL&lt;/a&gt;. ]
 
-
-(event: when $typewriter1 is &quot;Docker&quot; and $typewriter2 is &quot;Security&quot; and $typewriter3 is &quot;scalable&quot;)[You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
+(unless: $emeraldKey is true)[(event: when $typewriter1 is &quot;Docker&quot; and $typewriter2 is &quot;Security&quot; and $typewriter3 is &quot;scalable&quot;)[You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
 
 Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (link-reveal: &quot;emerald key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $emeraldKey to true) You take it. You now have $numKeys keys.]]]
 
-[[Go back|Foyer]].
+][[Go back|Foyer]].
 
 TODO: 
 * Allow repeat editing
@@ -301,7 +299,8 @@ At the head of the table is a (link-reveal: &quot;sticky note.&quot;)[
 
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. There&#39;s a note scribbled on it: &quot;What food should I put on this plate? I&#39;m so bad at making binary choices like this, maybe something in the room will light the way for me.&quot; ]
 
-(event: when $numPotatoes is 4)[As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: &quot;red key?&quot;)[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]
+(unless: $redKey is true)[
+(event: when $numPotatoes is 4)[As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: &quot;red key?&quot;)[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]]
 
 [[Go back|Foyer]].
 
@@ -346,7 +345,7 @@ TODO:
 
 A drawer opens on the endtable the phone is standing on, revealing a (ROSE KEY).
 
-</tw-passagedata><tw-passagedata pid="22" name="attic door" tags="" position="761,1247" size="100,100">You only have $numKeys keys. You need 8.</tw-passagedata><tw-passagedata pid="23" name="envelope" tags="" position="841,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+</tw-passagedata><tw-passagedata pid="22" name="attic door" tags="" position="761,1247" size="100,100">You only have $numKeys keys. You need 8.</tw-passagedata><tw-passagedata pid="23" name="envelope" tags="" position="842.6666666666666,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
 
 Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.
 
