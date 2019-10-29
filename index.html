@@ -121,7 +121,8 @@ To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted
 Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].
 
 [[Go back down the stairs.|Outside]]
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
+
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
 
 Where you would expect to see a keyhole, there is an ornate mechanism with 3 rotating dials. Each dial displays a single number that you can change.
 
@@ -137,7 +138,7 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 
 (else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]
 
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
 
 (unless: $silverKey is true)[Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]]
 
@@ -200,7 +201,7 @@ Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $nu
 
 [[Go back|Foyer]].
 
-&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="700,925" size="100,100">A dusty office with aging furniture.
+&lt;script&gt;changeImage(&quot;painting&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="700,925" size="100,100">A dusty office with aging furniture.
 
 On the desk is a (link-reveal: &quot;computer.&quot;)[
  
