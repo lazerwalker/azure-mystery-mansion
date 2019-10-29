@@ -133,7 +133,7 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 
 [[Go back.|Porch]]
 
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="475,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="476.6666666666667,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
 
 (else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]
 
@@ -280,14 +280,23 @@ TODO:
 
 Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (EMERALD KEY).
 
-]</tw-passagedata><tw-passagedata pid="18" name="dining room" tags="" position="100,925" size="100,100">You try the dining room door, but it is locked.
+]</tw-passagedata><tw-passagedata pid="18" name="dining room" tags="" position="91.66666666666664,928.3333333333333" size="100,100">(set: $numBeef to 0)
+(set: $numPotatoes to 0)
+(set: $numSalad to 0)
 
-[[Go back|Foyer]].
-
-&lt;!-- 
 A resplendent feast is set on a long dining table that seems to go on for miles.
 
-There are plates and bowls full of delicious food: a platter of sliced (prime rib), a crisp and fresh (green salad), and (boiled potatoes) dripping with butter.
+There is a buffet of food: a platter of sliced prime rib, a crisp green salad, and boiled potatoes.
+
+In front of you is a single place setting with |beefServings&gt;[$numBeef] helpings of beef, |saladServings&gt;[$numSalad] servings of salad, and |potatoServings&gt;[$numPotatoes] potatoes.
+
+(link-repeat: &quot;Add prime rib to plate&quot;)[(set: $numBeef to $numBeef + 1)(replace: ?beefServings)[$numBeef]]
+
+(link-repeat: &quot;Add salad to plate&quot;)[(set: $numSalad to $numSalad + 1)(replace: ?saladServings)[$numSalad]]
+
+(link-repeat: &quot;Add potatoes to plate&quot;)[(set: $numPotatoes to $numPotatoes + 1)(replace: ?potatoServings)[$numPotatoes]](unless: $redKey is true)[(event: when $numPotatoes is 4)[
+
+As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: &quot;red key?&quot;)[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]]
 
 Above the dining table is an elaborate chandelier with dozens of candles dimly illuminating the room. They seem to be arranged in a (link-reveal: &quot;peculiar arrangement.&quot;)[
 
@@ -306,13 +315,7 @@ At the head of the table is a (link-reveal: &quot;sticky note.&quot;)[
 
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. There&#39;s a note scribbled on it: &quot;What food should I put on this plate? I&#39;m so bad at making binary choices like this, maybe something in the room will light the way for me.&quot; ]
 
-(unless: $redKey is true)[(event: when $numPotatoes is 4)[As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: &quot;red key?&quot;)[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]]
-
 [[Go back|Foyer]].
-
-* Clicking a food adds it to your inventory
-* Show your inventory
---&gt;
 
 &lt;script&gt;changeImage(&quot;diningroom&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1100,900" size="100,100">You try the salon door, but it is locked.
 
