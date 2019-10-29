@@ -247,36 +247,27 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 
 &lt;script&gt;changeImage(&quot;bedroom&quot;)&lt;/script&gt;
 
-[[go back|hallway]].</tw-passagedata><tw-passagedata pid="16" name="library" tags="" position="875,925" size="100,100">You try the library door, but it is locked.
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="16" name="library" tags="" position="876.6666666666666,925" size="100,100">(set: $typewriter1 to &quot;________&quot;)
+(set: $typewriter2 to &quot;________&quot;)
+(set: $typewriter3 to &quot;________&quot;)
 
-[[Go back|Foyer]].
-
-&lt;!-- Books line the walls.
-
+An interesting library. Books line the walls.
 On a large mahogany desk lies a vintage (link-reveal: &quot;typewriter.&quot;)[
-	Somebody has typed part a sentence on a sheet of paper, but three words are missing. It looks like you can fill them in.
-	
-	&quot;Azure Container Registry enables you to store (link: &quot;________&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter1)$typewriter1] images in the cloud, in an Azure storage account. (link: &quot;________&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter2)$typewriter2] is an important reason to choose Container Registry instead of Docker Hub. Container Registry is highly (link: &quot;________&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter3)$typewriter3], providing enhanced throughput for Docker pulls that can span many nodes concurrently. &quot;
-].
+    
+    Somebody has typed part a sentence on a sheet of paper, but three words are missing. It looks like you must fill them in.
+        
+    &quot;Azure Container Registry enables you to store (link-repeat: &quot;|typewriter1&gt;[$typewriter1]&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter1)(if: $typewriter1 is &quot;&quot;)[(set: $typewriter1 to &quot;________&quot;)](replace: ?typewriter1)[$typewriter1]] images in the cloud, in an Azure storage account. (link-repeat: &quot;|typewriter2&gt;[$typewriter2]&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter2)(if: $typewriter2 is &quot;&quot;)[(set: $typewriter2 to &quot;________&quot;)](replace: ?typewriter2)[$typewriter1]] is an important reason to choose Container Registry instead of Docker Hub. Container Registry is highly (link-repeat: &quot;|typewriter3&gt;[$typewriter3]&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter3)(if: $typewriter3 is &quot;&quot;)[(set: $typewriter3 to &quot;________&quot;)](replace: ?typewriter3)[$typewriter3]], providing enhanced throughput for Docker pulls that can span many nodes concurrently.&quot;
+](unless: $emeraldKey is true)[(event: when ($typewriter1 is &quot;Docker&quot; or $typewriter2 is &quot;docker&quot;) and ($typewriter2 is &quot;Security&quot; or $typewriter2 is &quot;security&quot;) and $typewriter3 is &quot;scalable&quot;)[
+
+You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
+Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (link-reveal: &quot;emerald key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $emeraldKey to true) You take it. You now have $numKeys keys.]]]]
 
 Next to the typewriter is a (link-reveal: &quot;sticky note.&quot;)[ 
-
-The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/modules/deploy-run-container-app-service/index&quot; class=&quot;enchantment-link&quot;&gt;URL&lt;/a&gt;. ]
-
-
-(event: when $typewriter1 is &quot;Docker&quot; and $typewriter2 is &quot;Security&quot; and $typewriter3 is &quot;scalable&quot;)[You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
-
-Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (link-reveal: &quot;emerald key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $emeraldKey to true) You take it. You now have $numKeys keys.]]]
+The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/modules/deploy-run-container-app-service/index&quot; class=&quot;enchantment-link&quot;&gt;URL&lt;/a&gt;. ]
 
 [[Go back|Foyer]].
-
 &lt;script&gt;changeImage(&quot;library&quot;)&lt;/script&gt;
-
-TODO: 
-* Allow repeat editing
-* Case insensitive
-
---&gt;</tw-passagedata><tw-passagedata pid="17" name="completed typewriter" tags="" position="937,1079" size="100,100">There&#39;You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
+</tw-passagedata><tw-passagedata pid="17" name="completed typewriter" tags="" position="937,1079" size="100,100">There&#39;You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
 
 Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (EMERALD KEY).
 
@@ -317,44 +308,42 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; class=&qu
 
 [[Go back|Foyer]].
 
-&lt;script&gt;changeImage(&quot;diningroom&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1100,900" size="100,100">You try the salon door, but it is locked.
+&lt;script&gt;changeImage(&quot;diningroom&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1101.6666666666667,898.3333333333334" size="100,100">(set: $num1 to 0)(set: $num2 to 0)(set: $num3 to 0)(set: $num4 to 0)(set: $num5 to 0)(set: $num6 to 0)(set: $num7 to 0)(set: $num8 to 0)(set: $num9 to 0)(set: $num10 to 0)
 
-[[Go back|Foyer]].
-
-&lt;!-- A small, but tastefully designed, waiting room.
-
-Next to a very ornate couch is a table with a vintage rotary telephone on it.
-
-1 2 3
-4 5 6
-7 8 9
-  0
-  
-  
-You have entered $value.
-
-You can also (hang up).
-
+A small, but tastefully designed, living room.
 
 On the table is a (link-reveal: &quot;sticky note.&quot;)[
 
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. There&#39;s some text scribbled on it: &quot;I can never remember the right phone number to call! I must write myself a computer program to recall it, it&#39;s just Pi to the first ten decimal places.&quot;
 ]
 
+Next to a very ornate couch is a table with a vintage rotary telephone on it.
+
+(link-repeat: &quot;1&quot;)[(unless: $num1 &gt;= 9)[(set: $num1 to $num1 + 1)(replace: ?firstDigit)[$num1]]] (link-repeat: &quot;2&quot;)[(unless: $num2 &gt;= 9)[(set: $num2 to $num2 + 1)(replace: ?secondDigit)[$num2]]] (link-repeat: &quot;3&quot;)[(unless: $num3 &gt;= 9)[(set: $num3 to $num3 + 1)(replace: ?thirdDigit)[$num3]]]
+(link-repeat: &quot;4&quot;)[(unless: $num4 &gt;= 9)[(set: $num4 to $num4 + 1)(replace: ?fourthDigit)[$num4]]] (link-repeat: &quot;5&quot;)[(unless: $num5 &gt;= 9)[(set: $num5 to $num5 + 1)(replace: ?fifthDigit)[$num5]]] (link-repeat: &quot;6&quot;)[(unless: $num6 &gt;= 9)[(set: $num6 to $num6 + 1)(replace: ?sixthDigit)[$num6]]]
+(link-repeat: &quot;7&quot;)[(unless: $num7 &gt;= 9)[(set: $num7 to $num7 + 1)(replace: ?seventhDigit)[$num7]]] (link-repeat: &quot;8&quot;)[(unless: $num8 &gt;= 9)[(set: $num8 to $num8 + 1)(replace: ?eigthDigit)[$num8]]] (link-repeat: &quot;9&quot;)[(unless: $num9 &gt;= 9)[(set: $num9 to $num9 + 1)(replace: ?ninthDigit)[$num9]]]
+      	(link-repeat: &quot;0&quot;)[(unless: $num10 &gt;= 9)[(set: $num10 to $num10 + 1)(replace: ?tenthDigit)[$num10]]] 
+	  
+	  You can also (link-repeat: &quot;Hang Up&quot;)[(set: $num1 to 0)(replace: ?firstDigit)[$num1](set: $num2 to 0)(replace: ?secondDigit)[$num2](set: $num3 to 0)(replace: ?thirdDigit)[$num3](set: $num4 to 0)(replace: ?fourthDigit)[$num4](set: $num5 to 0)(replace: ?fifthDigit)[$num5](set: $num6 to 0)(replace: ?sixthDigit)[$num6](set: $num7 to 0)(replace: ?seventhDigit)[$num7](set: $num8 to 0)(replace: ?eigthDigit)[$num8](set: $num9 to 0)(replace: ?ninthDigit)[$num9](set: $num10 to 0)(replace: ?tenthDigit)[$num10]].
+
+  
+You have entered |firstDigit&gt;[$num1]|secondDigit&gt;[$num2]|thirdDigit&gt;[$num3]|fourthDigit&gt;[$num4]|fifthDigit&gt;[$num5]|sixthDigit&gt;[$num7]|seventhDigit&gt;[$num8]|eigthDigit&gt;[$num8]|ninthDigit&gt;[$num10]|tenthDigit&gt;[$num10].
+
+(unless: $roseKey is true)[(event: when $num1 is 3 and $num2 is 1 and $num3 is 4 and $num4 is 1 and $num5 is 5 and $num6 is 9 and $num7 is 2 and $num8 is 6 and $num9 is 5 and $num10 is 3)
+
+[You hear an unearthly noise, and then the phone line immediately goes dead.
+
+A drawer opens on the endtable the phone is standing on, revealing a (link-reveal: &quot;rose key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $roseKey to true) You take it. You now have $numKeys keys.]]]
+
+&lt;!--314 159 265 3--&gt;
+
 [[Go back|Foyer]].
 
 &lt;script&gt;changeImage(&quot;salon&quot;)&lt;/script&gt;
 
-PUZZLE: Players must dial &quot;31415926536&quot; on the phone to reveal the [[solution|solved phone]].
 
 
-TODO:
-* Numbers are repressable links
-* Pressing a number appends to the listed value
-* When the correct value has been entered, auto-proceed
-* &#39;hang up&#39; wipes out variable
-* Make it look like a rotary phone?
---&gt;</tw-passagedata><tw-passagedata pid="21" name="solved phone" tags="" position="1099,1061" size="100,100">You hear an unearthly noise, and then the phone line immediately goes dead.
+</tw-passagedata><tw-passagedata pid="21" name="solved phone" tags="" position="1099,1061" size="100,100">You hear an unearthly noise, and then the phone line immediately goes dead.
 
 A drawer opens on the endtable the phone is standing on, revealing a (ROSE KEY).
 
