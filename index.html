@@ -18,6 +18,10 @@
   text-align: center;
 }
 
+.small {
+  font-size: 14pt;
+}
+
 #image {
   margin-left: 1vw;
   width: 100%;
@@ -353,7 +357,7 @@ A drawer opens on the endtable the phone is standing on, revealing a (ROSE KEY).
 
 (else:)[You only have $numKeys keys. You need 8.]
 
-[[go back|hallway]].</tw-passagedata><tw-passagedata pid="23" name="Privacy Note" tags="footer" position="725,125" size="100,100">&lt;hr/&gt;&lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;http://go.microsoft.com/fwlink/?LinkId=521839&quot;&gt;Privacy and Cookies&lt;/a&gt;</tw-passagedata><tw-passagedata pid="24" name="Image" tags="header" position="900,125" size="100,100">&lt;h2&gt;Welcome to the Azure Mystery Mansion&lt;/h2&gt;
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="23" name="Privacy Note" tags="footer" position="725,125" size="100,100">&lt;hr/&gt;&lt;span class=&quot;small&quot;&gt;&lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;http://go.microsoft.com/fwlink/?LinkId=521839&quot;&gt;Privacy and Cookies&lt;/a&gt; | Terms of Use | © 2019 Microsoft Corporation. All rights reserved.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="24" name="Image" tags="header" position="900,125" size="100,100">&lt;h2&gt;Welcome to the Azure Mystery Mansion&lt;/h2&gt;
 &lt;img id=&quot;image&quot; /&gt;</tw-passagedata><tw-passagedata pid="25" name="envelope-foyer" tags="" position="790,737" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
 
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
