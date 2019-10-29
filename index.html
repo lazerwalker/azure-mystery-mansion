@@ -106,6 +106,20 @@ $(function () {
         }
     )
 })
+
+$(document).on("click", "tw-link", (e) => {
+	console.log("Tracking link click event: '" + e.target.innerText + "'")
+	PlayFabClientSDK.WritePlayerEvent({
+		EventName: "link_clicked",
+		Body: { text: e.target.innerText },
+		Timestamp: new Date()
+	})
+		PlayFabClientSDK.WritePlayerEvent({
+		EventName: "link_clicked_" + e.target.innerText.replace(/\W/gi, "_"),
+		Body: { text: e.target.innerText },
+		Timestamp: new Date()
+	})
+})
 </script><tw-passagedata pid="1" name="Outside" tags="" position="575,250" size="100,100">You are standing in an open field in front of an old brick house. It seems to have been abandoned many years ago.
 
 There is a small [[mailbox|Mailbox]] here.
