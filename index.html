@@ -112,7 +112,7 @@ On the grass, there is a (link-reveal: &quot;rusty old car.&quot;)[ You jiggle t
 
 You can climb up the creaky wooden steps to the [[front porch|Porch]].
 
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Porch" tags="" position="500,400" size="100,100">A rickety front porch.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Porch" tags="" position="500,401.6666666666667" size="100,100">A rickety front porch.
 
 In front of you is a large [[door.|Front Door]]
 
@@ -121,8 +121,7 @@ To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted
 Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].
 
 [[Go back down the stairs.|Outside]]
-
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
 
 Where you would expect to see a keyhole, there is an ornate mechanism with 3 rotating dials. Each dial displays a single number that you can change.
 
@@ -138,7 +137,7 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 
 (else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]
 
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
 
 (unless: $silverKey is true)[Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]]
 
@@ -201,7 +200,7 @@ Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $nu
 
 [[Go back|Foyer]].
 
-&lt;script&gt;changeImage(&quot;painting&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="700,925" size="100,100">A dusty office with aging furniture.
+&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="698.3333333333334,925" size="100,100">A dusty office with aging furniture.
 
 On the desk is a (link-reveal: &quot;computer.&quot;)[
  
@@ -212,16 +211,16 @@ On the desk is a (link-reveal: &quot;computer.&quot;)[
 (cycling-link: bind $githubInTrash, &quot;Drag GitHub to Trash&quot;, &quot;Restore GitHub from Trash&quot;) 
 (cycling-link: bind $devopsInTrash, &quot;Drag Azure DevOps to Trash&quot;, &quot;Restore Azure DevOps from Trash&quot;)
 (cycling-link: bind $sharepointInTrash, &quot;Drag SharePoint to Trash&quot;, &quot;Restore SharePoint from Trash&quot;)
-(cycling-link: bind $dropboxInTrash, &quot;Drag Dropbox to Trash&quot;, &quot;Restore Dropbox from Trash&quot;)
+(cycling-link: bind $dropboxInTrash, &quot;Drag Dropbox to Trash&quot;, &quot;Restore Dropbox from Trash&quot;)(unless: $blueKey is true)[
+(event: when $githubInTrash is &quot;Drag GitHub to Trash&quot; and $devopsInTrash is &quot;Drag Azure DevOps to Trash&quot; and $sharepointInTrash is &quot;Restore SharePoint from Trash&quot; and $dropboxInTrash is &quot;Restore Dropbox from Trash&quot;)[
+A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (link-reveal: &quot;blue key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $blueKey to true) You take it. You now have $numKeys keys.]
+
+The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.]]
  
  Sticking to the bottom of the monitor is a (link-reveal: &quot;sticky note.&quot;)[
  
- The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the text &quot;delete all invalid automated deployment sources&quot; and a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/learn/modules/host-a-web-app-with-azure-app-service/index?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;URL&lt;/a&gt;. ]
+ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the text &quot;delete all invalid automated deployment sources&quot; and a &lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;https://docs.microsoft.com/learn/modules/host-a-web-app-with-azure-app-service/index?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;URL&lt;/a&gt;. ]
 ]
-(unless: $blueKey is true)[
-(event: when $githubInTrash is &quot;Drag GitHub to Trash&quot; and $devopsInTrash is &quot;Drag Azure DevOps to Trash&quot; and $sharepointInTrash is &quot;Restore SharePoint from Trash&quot; and $dropboxInTrash is &quot;Restore Dropbox from Trash&quot;)[A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (link-reveal: &quot;blue key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $blueKey to true) You take it. You now have $numKeys keys.]
-
-The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.]]
 
 [[Go back|Foyer]].
 
@@ -238,7 +237,8 @@ Some toys lay strewn across the floor.
 
 (cycling-link: bind $firstToy, &quot;Put \&quot;push notifications\&quot; alphabet blocks in toychest.&quot;, &quot;Take \&quot;push notifications\&quot; alphabet blocks out of toychest.&quot;) 
 (cycling-link: bind $secondToy, &quot;Put \&quot;offline sync\&quot; teddy bear in toychest.&quot;, &quot;Take \&quot;offline sync\&quot; teddy bear out of toychest.&quot;)
-(cycling-link: bind $thirdToy, &quot;Put \&quot;authentication\&quot; labyrinth in toychest&quot;, &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)
+(cycling-link: bind $thirdToy, &quot;Put \&quot;authentication\&quot; labyrinth in toychest&quot;, &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)(unless: $greenKey is true)[(event: when $firstToy is &quot;Take \&quot;push notifications\&quot; alphabet blocks out of toychest.&quot; and $secondToy is &quot;Take \&quot;offline sync\&quot; teddy bear out of toychest.&quot; and $thirdToy is &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)[
+As you drop the third toy in the chest, you notice something you&#39;re fairly sure wasn&#39;t there before. It&#39;s a (link-reveal: &quot;green key!&quot;)[(set: $numKeys to $numKeys + 1)(set: $greenKey to true) You take it. You now have $numKeys keys.]]]
 
 On top of the open toychest is a (link-reveal: &quot;sticky note.&quot;)[
 
@@ -246,9 +246,6 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 ]
 
 &lt;script&gt;changeImage(&quot;bedroom&quot;)&lt;/script&gt;
-
-
-(unless: $greenKey is true)[(event: when $firstToy is &quot;Take \&quot;push notifications\&quot; alphabet blocks out of toychest.&quot; and $secondToy is &quot;Take \&quot;offline sync\&quot; teddy bear out of toychest.&quot; and $thirdToy is &quot;Take \&quot;authentication\&quot; labyrinth out of toychest.&quot;)[As you drop the third toy in the chest, you notice something you&#39;re fairly sure wasn&#39;t there before. It&#39;s a (link-reveal: &quot;green key!&quot;)[(set: $numKeys to $numKeys + 1)(set: $greenKey to true) You take it. You now have $numKeys keys.]]]
 
 [[go back|hallway]].</tw-passagedata><tw-passagedata pid="16" name="library" tags="" position="875,925" size="100,100">You try the library door, but it is locked.
 
