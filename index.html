@@ -108,7 +108,7 @@ $(function () {
 })
 
 harlowe.State.on('forward', (e) => {
-	if (!PlayFabClientSDK) { return }
+	if (typeof window.PlayFabClientSDK === "undefined") { return }
 	PlayFabClientSDK.WritePlayerEvent({
 		EventName: "node_loaded",
 		Body: { text: e },
