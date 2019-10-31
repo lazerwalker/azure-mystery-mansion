@@ -29,7 +29,6 @@
 #logo {
   margin-left: 1vw;
   margin-top: -1vw;
-  width: 100%;
 }
 
 
@@ -321,20 +320,14 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 
 Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (EMERALD KEY).
 
-]</tw-passagedata><tw-passagedata pid="18" name="dining room" tags="" position="91,928" size="100,100">(set: $numBeef to 0)
-(set: $numPotatoes to 0)
-(set: $numSalad to 0)
-
-A resplendent feast is set on a long dining table that seems to go on for miles.
+]</tw-passagedata><tw-passagedata pid="18" name="dining room" tags="" position="91,928" size="100,100">(set: $numBeef to 0)(set: $numPotatoes to 0)(set: $numSalad to 0)A resplendent feast is set on a long dining table that seems to go on for miles.
 
 There is a buffet of food: a platter of sliced prime rib, a crisp green salad, and boiled potatoes.
 
 In front of you is a single place setting with |beefServings&gt;[$numBeef] helpings of beef, |saladServings&gt;[$numSalad] servings of salad, and |potatoServings&gt;[$numPotatoes] potatoes.
 
 (link-repeat: &quot;Add prime rib to plate&quot;)[(set: $numBeef to $numBeef + 1)(replace: ?beefServings)[$numBeef]]
-
 (link-repeat: &quot;Add salad to plate&quot;)[(set: $numSalad to $numSalad + 1)(replace: ?saladServings)[$numSalad]]
-
 (link-repeat: &quot;Add potatoes to plate&quot;)[(set: $numPotatoes to $numPotatoes + 1)(replace: ?potatoServings)[$numPotatoes]](unless: $redKey is true)[(event: when $numPotatoes is 4)[
 
 As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: &quot;red key?&quot;)[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]]
@@ -426,7 +419,7 @@ What exactly just happened?
 
 You have earned the deeds to the the Azure Mystery Mansion!
 
-&lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://twitter.com/intent/tweet?url=https%3A%2F%2Faka.ms/mysterymansion&amp;text=I%20completed%20the%20Azure%20Mystery%20Mansion and you can, too 🏚&quot;&gt;Brag about it on on Twitter&lt;/a&gt;!
+&lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://twitter.com/intent/tweet?url=https%3A%2F%2Faka.ms/mysterymansion&amp;text=I%20completed%20the%20Azure%20Mystery%20Mansion%20and%20you%20can,%20too%20🏚%20%23AzureMysteryMansion&quot;&gt;Brag about it on Twitter&lt;/a&gt;!
 
 </tw-passagedata><tw-passagedata pid="29" name="logo" tags="header" position="396,146" size="100,100">&lt;img id=&quot;logo&quot; /&gt;
 &lt;script&gt;loadLogo()&lt;/script&gt;</tw-passagedata></tw-storydata>
