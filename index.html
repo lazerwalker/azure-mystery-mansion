@@ -211,7 +211,7 @@ The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; 
 
 (link: &quot;Pick it up.&quot;)[You pick up the duck, covering your fingers in dust. Attached to the bottom of the duck is a (link-reveal: &quot;sticky note.&quot;)[ 
 
-The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled a 🔼 symbol and the phrase &quot;number of available roles&quot;. ]]
+The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/certifications?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled a 🔼 symbol and the phrase &quot;number of  job roles listed for certification paths&quot;. ]]
 
 [[Go back|Porch]].
 
@@ -303,7 +303,7 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 An interesting library. Books line the walls.
 On a large mahogany desk lies a vintage (link-reveal: &quot;typewriter.&quot;)[
     
-    Somebody has typed part a sentence on a sheet of paper, but three words are missing. It looks like you must fill them in.
+    Somebody has typed part of a sentence on a sheet of paper, but three words are missing. It looks like you must fill them in.
         
     &quot;Azure Container Registry enables you to store (link-repeat: &quot;|typewriter1&gt;[$typewriter1]&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter1)(if: $typewriter1 is &quot;&quot;)[(set: $typewriter1 to &quot;________&quot;)](replace: ?typewriter1)[$typewriter1]] images in the cloud, in an Azure storage account. (link-repeat: &quot;|typewriter2&gt;[$typewriter2]&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter2)(if: $typewriter2 is &quot;&quot;)[(set: $typewriter2 to &quot;________&quot;)](replace: ?typewriter2)[$typewriter2]] is an important reason to choose Container Registry instead of Docker Hub. Container Registry is highly (link-repeat: &quot;|typewriter3&gt;[$typewriter3]&quot;)[(put: (prompt: &quot;What do you type?&quot;, &quot;&quot;) into $typewriter3)(if: $typewriter3 is &quot;&quot;)[(set: $typewriter3 to &quot;________&quot;)](replace: ?typewriter3)[$typewriter3]], providing enhanced throughput for Docker pulls that can span many nodes concurrently.&quot;
 ](unless: $emeraldKey is true)[(event: when ($typewriter1 is &quot;Docker&quot; or $typewriter2 is &quot;docker&quot;) and ($typewriter2 is &quot;Security&quot; or $typewriter2 is &quot;security&quot;) and $typewriter3 is &quot;scalable&quot;)[
@@ -371,7 +371,7 @@ Next to a very ornate couch is a table with a vintage rotary telephone on it.
 	  You can also (link-repeat: &quot;Hang Up&quot;)[(set: $num1 to 0)(replace: ?firstDigit)[$num1](set: $num2 to 0)(replace: ?secondDigit)[$num2](set: $num3 to 0)(replace: ?thirdDigit)[$num3](set: $num4 to 0)(replace: ?fourthDigit)[$num4](set: $num5 to 0)(replace: ?fifthDigit)[$num5](set: $num6 to 0)(replace: ?sixthDigit)[$num6](set: $num7 to 0)(replace: ?seventhDigit)[$num7](set: $num8 to 0)(replace: ?eigthDigit)[$num8](set: $num9 to 0)(replace: ?ninthDigit)[$num9](set: $num10 to 0)(replace: ?tenthDigit)[$num10]].
 
   
-You have entered |firstDigit&gt;[$num1]|secondDigit&gt;[$num2]|thirdDigit&gt;[$num3]|fourthDigit&gt;[$num4]|fifthDigit&gt;[$num5]|sixthDigit&gt;[$num7]|seventhDigit&gt;[$num8]|eigthDigit&gt;[$num8]|ninthDigit&gt;[$num10]|tenthDigit&gt;[$num10].
+You have entered |firstDigit&gt;[$num1]|secondDigit&gt;[$num2]|thirdDigit&gt;[$num3]|fourthDigit&gt;[$num4]|fifthDigit&gt;[$num5]|sixthDigit&gt;[$num6]|seventhDigit&gt;[$num7]|eigthDigit&gt;[$num8]|ninthDigit&gt;[$num9]|tenthDigit&gt;[$num10].
 
 (unless: $roseKey is true)[(event: when $num1 is 3 and $num2 is 1 and $num3 is 4 and $num4 is 1 and $num5 is 5 and $num6 is 9 and $num7 is 2 and $num8 is 6 and $num9 is 5 and $num10 is 3)
 
