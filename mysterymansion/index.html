@@ -146,6 +146,15 @@ $(document).on("click", "tw-link", (e) => {
 		Timestamp: new Date()
 	})
 })
+
+window.addEventListener("beforeunload", function(e) { 
+	console.log("Tracking browser close with node " + harlowe.State.passage);
+	PlayFabClientSDK.WritePlayerEvent({
+		EventName: "game_closed",
+		Body: { node: harlowe.State.passage },
+		Timestamp: new Date()
+	});
+})
 </script><tw-passagedata pid="1" name="Outside" tags="" position="575,250" size="100,100">You are standing in an open field in front of an old brick house. It seems to have been abandoned many years ago.
 
 You hold in your hands an [[envelope]].
