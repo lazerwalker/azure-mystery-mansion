@@ -68,6 +68,8 @@ tw-sidebar {
     window.harlowe = { "State": State };
 }
 
+let trackedVariables = ["numKeys", "copperKey", "silverKey", "goldenKey", "redKey", "blueKey", "greenKey", "emeraldKey", "roseKey"]
+
 window.changeImage = function (image) {
     console.log("Changing image to " + image);
     document.getElementById("image").src = "mysterymansion/" + image + ".jpg";
@@ -81,6 +83,14 @@ function createGUID() {
     //http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
     // via http://s3-us-west-2.amazonaws.com/api-playfab-com-craft-files/FileAssets/index.html
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0, v = c == 'x' ? r : r & 0x3 | 0x8; return v.toString(16); });
+}
+
+function trackedValues() {
+	let map = {}
+	trackedVariables.forEach(function(v) {
+		map[v] = harlowe.State.variables[v]
+	})
+	return map
 }
 
 function getGUID() {
@@ -124,9 +134,10 @@ $(function () {
 
 harlowe.State.on('forward', (e) => {
 	if (typeof window.PlayFabClientSDK === "undefined") { return }
+	
 	PlayFabClientSDK.WritePlayerEvent({
 		EventName: "node_loaded",
-		Body: { text: e },
+		Body: { text: e, state: trackedValues() },
 		Timestamp: new Date()
 	})
 	console.log("History event!", e)
@@ -136,13 +147,13 @@ $(document).on("click", "tw-link", (e) => {
 	console.log("Tracking link click event: '" + e.target.innerText + "'")
 	PlayFabClientSDK.WritePlayerEvent({
 		EventName: "link_clicked",
-		Body: { text: e.target.innerText },
+		Body: { text: e.target.innerText, state: trackedValues() },
 		Timestamp: new Date()
 	})
 	
 	PlayFabClientSDK.WritePlayerEvent({
 		EventName: "link_clicked_" + e.target.innerText.replace(/\W/gi, "_"),
-		Body: { text: e.target.innerText },
+		Body: { text: e.target.innerText, state: trackedValues() },
 		Timestamp: new Date()
 	})
 })
@@ -151,7 +162,7 @@ window.addEventListener("beforeunload", function(e) {
 	console.log("Tracking browser close with node " + harlowe.State.passage);
 	PlayFabClientSDK.WritePlayerEvent({
 		EventName: "game_closed",
-		Body: { node: harlowe.State.passage },
+		Body: { text: harlowe.State.passage, state: trackedValues() },
 		Timestamp: new Date()
 	});
 })
@@ -193,7 +204,7 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 
 (else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]
 
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,875" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,876.6666666666666" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
 
 (unless: $silverKey is true)[Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]]
 (unless: $copperKey is true)[
