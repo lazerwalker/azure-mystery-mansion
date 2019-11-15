@@ -201,16 +201,15 @@ To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted
 Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].
 
 [[Go back down the stairs.|Outside]]
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Front Door" tags="" position="500,549" size="100,100">You stare up at an imposing set of double doors.
 
-Where you would expect to see a keyhole, there is an ornate mechanism with 3 rotating dials. Each dial displays a single number that you can change, and has an odd symbol next to it.
+Where you would expect to see a keyhole, there is an ornate mechanism with two rotating dials. The first dial displays numbers, and the second rotates through a set of odd symbols.
 
 
-🔼 (cycling-link: bind $frontDoorFirst, &quot;0&quot;,&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;) 
-⏺ (cycling-link: bind $frontDoorSecond, &quot;0&quot;,&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;)
-⏹ (cycling-link: bind $frontDoorThird, &quot;0&quot;,&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;)
+Number: (cycling-link: bind $frontDoorFirst, &quot;0&quot;,&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;) 
+Symbol: (cycling-link: bind $frontDoorSecond, &quot;⏹ (square)&quot;, &quot;🔼 (triangle)&quot;, &quot;⏺ (circle)&quot;)
 
-(event: when $frontDoorFirst is &quot;10&quot; and $frontDoorSecond is &quot;0&quot; and $frontDoorThird is &quot;6&quot;)[You hear a satisfying click sound. (set: $frontDoorOpen to true)]
+(event: when $frontDoorFirst is &quot;4&quot; and $frontDoorSecond is &quot;⏺ (circle)&quot;)[You hear a satisfying click sound. (set: $frontDoorOpen to true)]
 
 [[Try the door handle|Front Door Handle]]
 
@@ -240,14 +239,14 @@ Behind the staircase is a small door leading to the [[salon]].
 
 Looking inside the mailbox, you spy a (link-reveal: &quot;sticky note.&quot;)[ 
 
-The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody has scribbled a ⏹ symbol and the phrase &quot;number of modules needed to deploy a website to Azure with App Service&quot;. ]
+The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled a circle symbol, a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;URL&lt;/a&gt;, and the question &quot;how many skills are measured?&quot; ]
 
 [[Go back|Outside]].
 &lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="Christmas Duck)" tags="" position="620,559" size="100,100">The plastic duck has a green wreath and red bow around its neck. How odd.
 
 (link: &quot;Pick it up.&quot;)[You pick up the duck, covering your fingers in dust. Attached to the bottom of the duck is a (link-reveal: &quot;sticky note.&quot;)[ 
 
-The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/certifications?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled a 🔼 symbol and the phrase &quot;number of  job roles listed for certification paths&quot;. ]]
+The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/certifications?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled a circle symbol, a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;URL&lt;/a&gt;, and the question &quot;how many skills are measured?&quot; ]]
 
 [[Go back|Porch]].
 
@@ -259,7 +258,7 @@ The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; 
 
 Nestled into the dirt of one of them, you see what appears to be the corner of a (link-reveal: &quot;sticky note.&quot;)[
 
-After pulling it out and wiping the dirt off, you see that the sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled the symbol &quot;⏺&quot; and the phrase &quot;cost to use MS Learn&quot;. ]
+After pulling it out and wiping the dirt off, you see that the sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody&#39;s scribbled a circle symbol, a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;URL&lt;/a&gt;, and the question &quot;how many skills are measured?&quot; ]
 
 [[Go back|Porch]].
 
