@@ -141,6 +141,12 @@ $(function () {
 })
 
 harlowe.State.on('forward', (e) => {
+	// Programmatically set ARIA attributes for all internal Twine links to be like buttons
+	// At the moment this event fires, new links haven't been loaded in yet, but pushing this to the end of the execution stack seems to work.
+	setTimeout(function() {
+		$("tw-link").attr("role", "button")
+	}, 0)
+
 	if (typeof window.PlayFabClientSDK === "undefined") { return }
 	
 	PlayFabClientSDK.WritePlayerEvent({
@@ -149,6 +155,8 @@ harlowe.State.on('forward', (e) => {
 		Timestamp: new Date()
 	})
 	console.log("History event!", e)
+	
+	// Manually add ARIA roles to all new links
 })
 
 $(document).on("click", "tw-link", (e) => {
