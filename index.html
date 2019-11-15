@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Azure Mystery Mansion" startnode="1" creator="Twine" creator-version="2.3.5" ifid="89A5D9EC-3A86-4346-AEFD-080DA5AC7F04" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">footer {
+<tw-storydata name="Azure Mystery Mansion" startnode="1" creator="Twine" creator-version="2.3.5" ifid="89A5D9EC-3A86-4346-AEFD-080DA5AC7F04" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">footer {
   margin: auto;
   margin-top: 10em;
   font-size: 0.7em;
@@ -185,7 +185,7 @@ To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted
 Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].
 
 [[Go back down the stairs.|Outside]]
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Backyard" tags="" position="1109,353" size="100,100">Nothing to see here yet!</tw-passagedata><tw-passagedata pid="4" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Front Door" tags="" position="500,550" size="100,100">You stare up at an imposing set of double doors.
 
 Where you would expect to see a keyhole, there is an ornate mechanism with 3 rotating dials. Each dial displays a single number that you can change, and has an odd symbol next to it.
 
@@ -200,11 +200,11 @@ Where you would expect to see a keyhole, there is an ornate mechanism with 3 rot
 
 [[Go back.|Porch]]
 
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Front Door Handle" tags="" position="476,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="4" name="Front Door Handle" tags="" position="476,700" size="100,100">(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
 
 (else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]
 
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Foyer" tags="" position="500,876.6666666666666" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Foyer" tags="" position="500,876.6666666666666" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
 
 (unless: $silverKey is true)[Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]]
 (unless: $copperKey is true)[
@@ -220,14 +220,14 @@ At the top of the stairs is a [[hallway]].
 
 Behind the staircase is a small door leading to the [[salon]].
 
-&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="Mailbox" tags="" position="365,411" size="100,100">A few bills, some free magazines, nothing of any importance. Should you really be reading through someone else&#39;s mail?
+&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Mailbox" tags="" position="365,411" size="100,100">A few bills, some free magazines, nothing of any importance. Should you really be reading through someone else&#39;s mail?
 
 Looking inside the mailbox, you spy a (link-reveal: &quot;sticky note.&quot;)[ 
 
 The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Somebody has scribbled a ⏹ symbol and the phrase &quot;number of modules needed to deploy a website to Azure with App Service&quot;. ]
 
 [[Go back|Outside]].
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="8" name="Christmas Duck)" tags="" position="620,559" size="100,100">The plastic duck has a green wreath and red bow around its neck. How odd.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="Christmas Duck)" tags="" position="620,559" size="100,100">The plastic duck has a green wreath and red bow around its neck. How odd.
 
 (link: &quot;Pick it up.&quot;)[You pick up the duck, covering your fingers in dust. Attached to the bottom of the duck is a (link-reveal: &quot;sticky note.&quot;)[ 
 
@@ -235,11 +235,11 @@ The sticky note&#39;s letterhead has a &lt;a class=&quot;enchantment-link&quot; 
 
 [[Go back|Porch]].
 
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="Lounge Chairs" tags="" position="380,559" size="100,100">They&#39;re covered in cobwebs. Best leave these for the spiders to sit in.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="8" name="Lounge Chairs" tags="" position="380,559" size="100,100">They&#39;re covered in cobwebs. Best leave these for the spiders to sit in.
 
 [[Go back|Porch]].
 
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="Ferns" tags="" position="738,559" size="100,100">For how abandoned the house looks, the plants appear to be thriving.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="Ferns" tags="" position="738,559" size="100,100">For how abandoned the house looks, the plants appear to be thriving.
 
 Nestled into the dirt of one of them, you see what appears to be the corner of a (link-reveal: &quot;sticky note.&quot;)[
 
@@ -247,7 +247,7 @@ After pulling it out and wiping the dirt off, you see that the sticky note&#39;s
 
 [[Go back|Porch]].
 
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="painting" tags="" position="300,950" size="100,100">A faded oil painting with a gaunt-looking person.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="painting" tags="" position="300,950" size="100,100">A faded oil painting with a gaunt-looking person.
 
 His eyes appear to follow you as you walk around the room.
 
@@ -269,7 +269,7 @@ Sitting in the compartment is a (link-reveal: &quot;golden key.&quot;)[(set: $nu
 
 [[Go back|Foyer]].
 
-&lt;script&gt;changeImage(&quot;painting&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="office" tags="" position="698,925" size="100,100">A dusty office with aging furniture.
+&lt;script&gt;changeImage(&quot;painting&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="office" tags="" position="698,925" size="100,100">A dusty office with aging furniture.
 
 On the desk is a (link-reveal: &quot;computer.&quot;)[
  
@@ -294,13 +294,11 @@ The computer&#39;s screen flickers and switches to reveal a cryptic error messag
 [[Go back|Foyer]].
 
 &lt;script&gt;changeImage(&quot;office&quot;)&lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="13" name="completed computer" tags="" position="708,1064" size="100,100">A trumpet sound plays from the computer&#39;s tinny speakers as the CD-ROM drive pops open to reveal a (BLUE KEY). 
-
-The computer&#39;s screen flickers and switches to reveal a cryptic error message on a blue background.</tw-passagedata><tw-passagedata pid="14" name="hallway" tags="" position="494,1017" size="100,100">A door leads to a [[child&#39;s bedroom]].
+</tw-passagedata><tw-passagedata pid="12" name="hallway" tags="" position="494,1017" size="100,100">A door leads to a [[child&#39;s bedroom]].
 
 An unstable-looking ladder leads up to a locked attic panel with [[8 keyholes|attic door]].
 
-[[go back down|Foyer]].</tw-passagedata><tw-passagedata pid="15" name="child&#39;s bedroom" tags="" position="495,1161" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
+[[go back down|Foyer]].</tw-passagedata><tw-passagedata pid="13" name="child&#39;s bedroom" tags="" position="495,1161" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
 
 Some toys lay strewn across the floor.
 
@@ -316,7 +314,7 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 
 &lt;script&gt;changeImage(&quot;bedroom&quot;)&lt;/script&gt;
 
-[[go back|hallway]].</tw-passagedata><tw-passagedata pid="16" name="library" tags="" position="876,925" size="100,100">(set: $typewriter1 to &quot;________&quot;)
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="14" name="library" tags="" position="876,925" size="100,100">(set: $typewriter1 to &quot;________&quot;)
 (set: $typewriter2 to &quot;________&quot;)
 (set: $typewriter3 to &quot;________&quot;)
 
@@ -336,11 +334,7 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quo
 
 [[Go back|Foyer]].
 &lt;script&gt;changeImage(&quot;library&quot;)&lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="17" name="completed typewriter" tags="" position="937,1079" size="100,100">There&#39;You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: &quot;sticking out from the shelf.&quot;)[
-
-Pulling it out and holding it in your hands, you realize it isn&#39;t a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (EMERALD KEY).
-
-]</tw-passagedata><tw-passagedata pid="18" name="dining room" tags="" position="91,928" size="100,100">(set: $numBeef to 0)(set: $numPotatoes to 0)(set: $numSalad to 0)
+</tw-passagedata><tw-passagedata pid="15" name="dining room" tags="" position="91,928" size="100,100">(set: $numBeef to 0)(set: $numPotatoes to 0)(set: $numSalad to 0)
 A resplendent feast is set on a long dining table that seems to go on for miles.
 
 There is a buffet of food: a platter of sliced prime rib, a crisp green salad, and boiled potatoes.
@@ -372,7 +366,7 @@ The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; class=&qu
 
 [[Go back|Foyer]].
 
-&lt;script&gt;changeImage(&quot;diningroom&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="picked up potatoes" tags="" position="100,1068" size="100,100">As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (RED KEY)?</tw-passagedata><tw-passagedata pid="20" name="salon" tags="" position="1101,898" size="100,100">(set: $num1 to 0)(set: $num2 to 0)(set: $num3 to 0)(set: $num4 to 0)(set: $num5 to 0)(set: $num6 to 0)(set: $num7 to 0)(set: $num8 to 0)(set: $num9 to 0)(set: $num10 to 0)
+&lt;script&gt;changeImage(&quot;diningroom&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="16" name="salon" tags="" position="1101,898" size="100,100">(set: $num1 to 0)(set: $num2 to 0)(set: $num3 to 0)(set: $num4 to 0)(set: $num5 to 0)(set: $num6 to 0)(set: $num7 to 0)(set: $num8 to 0)(set: $num9 to 0)(set: $num10 to 0)
 
 A small, but tastefully designed, living room.
 
@@ -407,29 +401,25 @@ A drawer opens on the endtable the phone is standing on, revealing a (link-revea
 
 
 
-</tw-passagedata><tw-passagedata pid="21" name="solved phone" tags="" position="1099,1061" size="100,100">You hear an unearthly noise, and then the phone line immediately goes dead.
-
-A drawer opens on the endtable the phone is standing on, revealing a (ROSE KEY).
-
-&lt;script&gt;changeImage(&quot;salon&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="attic door" tags="" position="762,1250" size="100,100">(set: $numKeys to 8)
+</tw-passagedata><tw-passagedata pid="17" name="attic door" tags="" position="762,1250" size="100,100">(set: $numKeys to 8)
 (if: $numKeys is 8)[
 	You put all eight keys into the correct keyholes. The attic door [[swings open]] with a loud creak.
 ]
 
 (else:)[You only have $numKeys keys. You need 8.]
 
-[[go back|hallway]].</tw-passagedata><tw-passagedata pid="23" name="envelope" tags="" position="839,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="18" name="envelope" tags="" position="839,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
 
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
 
 [[Go back|Outside]].
-&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="24" name="Privacy Note" tags="footer" position="725,125" size="100,100">&lt;hr/&gt;&lt;span class=&quot;small&quot;&gt;&lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;http://go.microsoft.com/fwlink/?LinkId=521839&quot;&gt;Privacy and Cookies&lt;/a&gt; | &lt;a class=&quot;enchantment-link&quot; href=&quot;https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx&quot; target=&quot;_blank&quot;&gt;Terms of Use&lt;/a&gt; | &lt;a class=&quot;enchantment-link&quot; href=&quot;mailto:ammteam@microsoft.com&quot;&gt;Support&lt;/a&gt; | © 2019 Microsoft Corporation. All rights reserved.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="25" name="Image" tags="header" position="900,125" size="100,100">&lt;h2&gt;Welcome to the Azure Mystery Mansion&lt;/h2&gt;
-&lt;img id=&quot;image&quot; /&gt;</tw-passagedata><tw-passagedata pid="26" name="envelope-foyer" tags="" position="790,737" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+&lt;script&gt;changeImage(&quot;porch&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="Privacy Note" tags="footer" position="725,125" size="100,100">&lt;hr/&gt;&lt;span class=&quot;small&quot;&gt;&lt;a target=&quot;_blank&quot; class=&quot;enchantment-link&quot; href=&quot;http://go.microsoft.com/fwlink/?LinkId=521839&quot;&gt;Privacy and Cookies&lt;/a&gt; | &lt;a class=&quot;enchantment-link&quot; href=&quot;https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx&quot; target=&quot;_blank&quot;&gt;Terms of Use&lt;/a&gt; | &lt;a class=&quot;enchantment-link&quot; href=&quot;mailto:ammteam@microsoft.com&quot;&gt;Support&lt;/a&gt; | © 2019 Microsoft Corporation. All rights reserved.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="Image" tags="header" position="900,125" size="100,100">&lt;h2&gt;Welcome to the Azure Mystery Mansion&lt;/h2&gt;
+&lt;img id=&quot;image&quot; /&gt;</tw-passagedata><tw-passagedata pid="21" name="envelope-foyer" tags="" position="790,737" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
 
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
 
 [[Go back|Foyer]].
-&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="27" name="swings open" tags="" position="761,1402" size="100,100">As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].</tw-passagedata><tw-passagedata pid="28" name="goes black" tags="" position="759,1552" size="100,100">You slowly open your eyes, realizing you&#39;re lying in the dirt. You stand up and brush the dirt off your clothes. 
+&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="swings open" tags="" position="761,1402" size="100,100">As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].</tw-passagedata><tw-passagedata pid="23" name="goes black" tags="" position="759,1552" size="100,100">You slowly open your eyes, realizing you&#39;re lying in the dirt. You stand up and brush the dirt off your clothes. 
 
 In front of you is a pristine house behind an immaculately-manicured lawn. You appear to be holding the title deed to it.
 
@@ -442,7 +432,7 @@ You have earned the deeds to the the Azure Mystery Mansion!
 
 &lt;a class=&quot;enchantment-link&quot; target=&quot;_blank&quot; href=&quot;https://twitter.com/intent/tweet?url=https%3A%2F%2Faka.ms/mysterymansion&amp;text=I%20completed%20the%20Azure%20Mystery%20Mansion%20and%20you%20can,%20too%20🏚%20%23AzureMysteryMansion&quot;&gt;Brag about it on Twitter&lt;/a&gt;!
 
-</tw-passagedata><tw-passagedata pid="29" name="logo" tags="header" position="396,146" size="100,100">&lt;img id=&quot;logo&quot; /&gt;
+</tw-passagedata><tw-passagedata pid="24" name="logo" tags="header" position="396,146" size="100,100">&lt;img id=&quot;logo&quot; /&gt;
 &lt;script&gt;loadLogo()&lt;/script&gt;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
