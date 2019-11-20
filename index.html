@@ -219,7 +219,7 @@ Symbol: (cycling-link: bind $frontDoorSecond, &quot;‚èπ (square)&quot;, &quot;ü
 
 (else: )[You pull on the door handle, but it&#39;s locked shut. [[Go back|Porch]].]
 
-&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Foyer" tags="" position="500,876.6666666666666" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+&lt;script&gt;changeImage(&quot;frontdoor&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Foyer" tags="" position="500,876" size="100,100">A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
 
 (unless: $silverKey is true)[Sitting on a small table next to the door is a  (link-reveal: &quot;silver key.&quot;)[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]]
 (unless: $copperKey is true)[
@@ -313,7 +313,10 @@ The computer&#39;s screen flickers and switches to reveal a cryptic error messag
 
 An unstable-looking ladder leads up to a locked attic panel with [[8 keyholes|attic door]].
 
-[[go back down|Foyer]].</tw-passagedata><tw-passagedata pid="13" name="child&#39;s bedroom" tags="" position="495,1161" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
+[[go back down|Foyer]].
+
+&lt;script&gt;changeImage(&quot;black&quot;)&lt;/script&gt;
+</tw-passagedata><tw-passagedata pid="13" name="child&#39;s bedroom" tags="" position="495,1160" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
 
 Some toys lay strewn across the floor.
 
@@ -327,9 +330,9 @@ On top of the open toychest is a (link-reveal: &quot;sticky note.&quot;)[
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the question &quot;Which features of Mobile Apps for Azure App Service might you use to build a mobile chat application that lets users create profiles, add friends, and send messages to contacts?&quot; along with a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/learn/modules/intro-to-mobile-app-service/?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;URL&lt;/a&gt;. 
 ]
 
-&lt;script&gt;changeImage(&quot;bedroom&quot;)&lt;/script&gt;
+[[go back|hallway]].
 
-[[go back|hallway]].</tw-passagedata><tw-passagedata pid="14" name="library" tags="" position="876,925" size="100,100">(set: $typewriter1 to &quot;________&quot;)
+&lt;script&gt;changeImage(&quot;bedroom&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="14" name="library" tags="" position="876,925" size="100,100">(set: $typewriter1 to &quot;________&quot;)
 (set: $typewriter2 to &quot;________&quot;)
 (set: $typewriter3 to &quot;________&quot;)
 
@@ -416,14 +419,17 @@ A drawer opens on the endtable the phone is standing on, revealing a (link-revea
 
 
 
-</tw-passagedata><tw-passagedata pid="17" name="attic door" tags="" position="762,1250" size="100,100">(set: $numKeys to 8)
+</tw-passagedata><tw-passagedata pid="17" name="attic door" tags="" position="762,1250" size="100,100">
 (if: $numKeys is 8)[
 	You put all eight keys into the correct keyholes. The attic door [[swings open]] with a loud creak.
 ]
 
 (else:)[You only have $numKeys keys. You need 8.]
 
-[[go back|hallway]].</tw-passagedata><tw-passagedata pid="18" name="envelope" tags="" position="839,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+[[go back|hallway]].
+
+&lt;script&gt;changeImage(&quot;black&quot;)&lt;/script&gt;
+</tw-passagedata><tw-passagedata pid="18" name="envelope" tags="" position="839,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
 
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
 
@@ -434,7 +440,9 @@ A drawer opens on the endtable the phone is standing on, revealing a (link-revea
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
 
 [[Go back|Foyer]].
-&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="swings open" tags="" position="761,1402" size="100,100">As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].</tw-passagedata><tw-passagedata pid="23" name="goes black" tags="" position="759,1552" size="100,100">You slowly open your eyes, realizing you&#39;re lying in the dirt. You stand up and brush the dirt off your clothes. 
+&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="swings open" tags="" position="761,1402" size="100,100">As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].
+
+&lt;script&gt;changeImage(&quot;black&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="23" name="goes black" tags="" position="759,1552" size="100,100">You slowly open your eyes, realizing you&#39;re lying in the dirt. You stand up and brush the dirt off your clothes. 
 
 In front of you is a pristine house behind an immaculately-manicured lawn. You appear to be holding the title deed to it.
 
