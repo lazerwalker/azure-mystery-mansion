@@ -70,13 +70,7 @@ tw-sidebar {
 
   footer {
 	margin-left: -44vw;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">if (!window.harlowe) {
-    window.harlowe = { "State": State };
-}
-
-document.body.setAttribute('lang', 'en')
-
-let trackedVariables = ["numKeys", "copperKey", "silverKey", "goldenKey", "redKey", "blueKey", "greenKey", "emeraldKey", "roseKey"]
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">document.body.setAttribute('lang', 'en')
 
 window.changeImage = function (image) {
     console.log("Changing image to " + image);
@@ -87,102 +81,15 @@ window.loadLogo = function () {
     document.getElementById("logo").src = "mysterymansion/logo.png";
 } 
 
-function createGUID() {
-    //http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
-    // via http://s3-us-west-2.amazonaws.com/api-playfab-com-craft-files/FileAssets/index.html
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0, v = c == 'x' ? r : r & 0x3 | 0x8; return v.toString(16); });
-}
-
-function trackedValues() {
-	let map = {}
-	trackedVariables.forEach(function(v) {
-		map[v] = harlowe.State.variables[v]
-	})
-	return map
-}
-
-function getGUID() {
-    if (window.localStorage && window.localStorage.GUID) {
-        return window.localStorage.GUID
-    } else {
-        var guid = createGUID()
-        if (window.localStorage) {
-            window.localStorage.GUID = guid;
-        }
-        return guid;
-    }
-}
-
-function logInWithPlayFab() {
-    var guid = getGUID();
-    PlayFab.settings.titleId = "2F970";
-
-    PlayFabClientSDK.LoginWithCustomID({
-        TitleId: PlayFab.settings.titleId,
-        CustomId: guid,
-        CreateAccount: true
-    }, (response, error) => {
-        if (error) {
-            console.log("Login error", error);
-        } else {
-            console.log(response.data);
-        }
-    });
-}
-
-var url = "https://download.playfab.com/PlayFabClientApi.js";
+var url = "http://lazerwalker.com/playfab-twine/index.js";
 $(function () {
     $.getScript(url,
         (data, textStatus, jqxhr) => {
-            console.log("File load was performed.");
-            logInWithPlayFab();
+					const trackedVariables = ["numKeys", "copperKey", "silverKey", "goldenKey", "redKey", "blueKey", "greenKey", "emeraldKey", "roseKey"]
+					setupPlayfab(trackedVariables, State)
         }
     )
-})
-
-harlowe.State.on('forward', (e) => {
-	// Programmatically set ARIA attributes for all internal Twine links to be like buttons
-	// At the moment this event fires, new links haven't been loaded in yet, but pushing this to the end of the execution stack seems to work.
-	setTimeout(function() {
-		$("tw-link").attr("role", "button")
-	}, 0)
-
-	if (typeof window.PlayFabClientSDK === "undefined") { return }
-	
-	PlayFabClientSDK.WritePlayerEvent({
-		EventName: "node_loaded",
-		Body: { text: e, state: trackedValues() },
-		Timestamp: new Date()
-	})
-	console.log("History event!", e)
-	
-	// Manually add ARIA roles to all new links
-})
-
-$(document).on("click", "tw-link", (e) => {
-	console.log("Tracking link click event: '" + e.target.innerText + "'")
-	PlayFabClientSDK.WritePlayerEvent({
-		EventName: "link_clicked",
-		Body: { text: e.target.innerText, state: trackedValues() },
-		Timestamp: new Date()
-	})
-	
-	PlayFabClientSDK.WritePlayerEvent({
-		EventName: "link_clicked_" + e.target.innerText.replace(/\W/gi, "_"),
-		Body: { text: e.target.innerText, state: trackedValues() },
-		Timestamp: new Date()
-	})
-})
-
-window.addEventListener("beforeunload", function(e) { 
-	console.log("Tracking browser close with node " + harlowe.State.passage);
-	PlayFabClientSDK.WritePlayerEvent({
-		EventName: "game_closed",
-		Body: { text: harlowe.State.passage, state: trackedValues() },
-		Timestamp: new Date()
-	});
-})
-</script><tw-passagedata pid="1" name="Outside" tags="" position="575,250" size="100,100">You are standing in an open field in front of an old brick house. It seems to have been abandoned many years ago.
+})</script><tw-passagedata pid="1" name="Outside" tags="" position="575,250" size="100,100">You are standing in an open field in front of an old brick house. It seems to have been abandoned many years ago.
 
 You hold in your hands an [[envelope]].
 
@@ -313,10 +220,7 @@ The computer&#39;s screen flickers and switches to reveal a cryptic error messag
 
 An unstable-looking ladder leads up to a locked attic panel with [[8 keyholes|attic door]].
 
-[[go back down|Foyer]].
-
-&lt;script&gt;changeImage(&quot;black&quot;)&lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="13" name="child&#39;s bedroom" tags="" position="495,1160" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
+[[go back down|Foyer]].</tw-passagedata><tw-passagedata pid="13" name="child&#39;s bedroom" tags="" position="495,1161" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
 
 Some toys lay strewn across the floor.
 
@@ -330,9 +234,9 @@ On top of the open toychest is a (link-reveal: &quot;sticky note.&quot;)[
 The sticky note&#39;s letterhead has a &lt;a target=&quot;_blank&quot; href=&quot;https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;Microsoft Learn&lt;/a&gt; logo. Scribbled on it is the question &quot;Which features of Mobile Apps for Azure App Service might you use to build a mobile chat application that lets users create profiles, add friends, and send messages to contacts?&quot; along with a &lt;a target=&quot;_blank&quot; href=&quot;https://docs.microsoft.com/learn/modules/intro-to-mobile-app-service/?WT.mc_id=mysterymansion-playfab-emwalker&quot; class=&quot;enchantment-link&quot;&gt;URL&lt;/a&gt;. 
 ]
 
-[[go back|hallway]].
+&lt;script&gt;changeImage(&quot;bedroom&quot;)&lt;/script&gt;
 
-&lt;script&gt;changeImage(&quot;bedroom&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="14" name="library" tags="" position="876,925" size="100,100">(set: $typewriter1 to &quot;________&quot;)
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="14" name="library" tags="" position="876,925" size="100,100">(set: $typewriter1 to &quot;________&quot;)
 (set: $typewriter2 to &quot;________&quot;)
 (set: $typewriter3 to &quot;________&quot;)
 
@@ -419,17 +323,14 @@ A drawer opens on the endtable the phone is standing on, revealing a (link-revea
 
 
 
-</tw-passagedata><tw-passagedata pid="17" name="attic door" tags="" position="762,1250" size="100,100">
+</tw-passagedata><tw-passagedata pid="17" name="attic door" tags="" position="762,1250" size="100,100">(set: $numKeys to 8)
 (if: $numKeys is 8)[
 	You put all eight keys into the correct keyholes. The attic door [[swings open]] with a loud creak.
 ]
 
 (else:)[You only have $numKeys keys. You need 8.]
 
-[[go back|hallway]].
-
-&lt;script&gt;changeImage(&quot;black&quot;)&lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="18" name="envelope" tags="" position="839,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+[[go back|hallway]].</tw-passagedata><tw-passagedata pid="18" name="envelope" tags="" position="839,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
 
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
 
@@ -440,9 +341,7 @@ A drawer opens on the endtable the phone is standing on, revealing a (link-revea
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
 
 [[Go back|Foyer]].
-&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="swings open" tags="" position="761,1402" size="100,100">As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].
-
-&lt;script&gt;changeImage(&quot;black&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="23" name="goes black" tags="" position="759,1552" size="100,100">You slowly open your eyes, realizing you&#39;re lying in the dirt. You stand up and brush the dirt off your clothes. 
+&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="swings open" tags="" position="761,1402" size="100,100">As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].</tw-passagedata><tw-passagedata pid="23" name="goes black" tags="" position="759,1552" size="100,100">You slowly open your eyes, realizing you&#39;re lying in the dirt. You stand up and brush the dirt off your clothes. 
 
 In front of you is a pristine house behind an immaculately-manicured lawn. You appear to be holding the title deed to it.
 
