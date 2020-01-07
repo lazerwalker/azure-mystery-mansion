@@ -73,8 +73,15 @@ tw-sidebar {
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">document.body.setAttribute('lang', 'en')
 
 window.changeImage = function (image) {
+		if (!image) {
+			console.log("Unsetting image")
+			document.getElementById("image").style.visibility = "hidden";
+			return
+		}
+	
     console.log("Changing image to " + image);
     document.getElementById("image").src = "mysterymansion/" + image + ".jpg";
+    document.getElementById("image").style.visibility = "visible";
 }
 
 window.loadLogo = function () {
@@ -220,7 +227,9 @@ The computer&#39;s screen flickers and switches to reveal a cryptic error messag
 
 An unstable-looking ladder leads up to a locked attic panel with [[8 keyholes|attic door]].
 
-[[go back down|Foyer]].</tw-passagedata><tw-passagedata pid="13" name="child&#39;s bedroom" tags="" position="495,1161" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
+[[go back down|Foyer]].
+
+&lt;script&gt;changeImage()&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="child&#39;s bedroom" tags="" position="495,1161" size="100,100">At the foot of a large four-poster bed is an open chest, likely meant to store a child&#39;s playthings.
 
 Some toys lay strewn across the floor.
 
@@ -323,14 +332,15 @@ A drawer opens on the endtable the phone is standing on, revealing a (link-revea
 
 
 
-</tw-passagedata><tw-passagedata pid="17" name="attic door" tags="" position="762,1250" size="100,100">(set: $numKeys to 8)
-(if: $numKeys is 8)[
+</tw-passagedata><tw-passagedata pid="17" name="attic door" tags="" position="762,1250" size="100,100">(if: $numKeys is 8)[
 	You put all eight keys into the correct keyholes. The attic door [[swings open]] with a loud creak.
 ]
 
 (else:)[You only have $numKeys keys. You need 8.]
 
-[[go back|hallway]].</tw-passagedata><tw-passagedata pid="18" name="envelope" tags="" position="839,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+[[go back|hallway]].
+
+&lt;script&gt;changeImage()&lt;/script&gt;</tw-passagedata><tw-passagedata pid="18" name="envelope" tags="" position="839,270" size="100,100">It&#39;s from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
 
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
 
@@ -341,7 +351,9 @@ A drawer opens on the endtable the phone is standing on, revealing a (link-revea
 (unless: $copperKey is true)[Inside the envelope is a  (link-reveal: &quot;copper key&quot;)[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
 
 [[Go back|Foyer]].
-&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="swings open" tags="" position="761,1402" size="100,100">As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].</tw-passagedata><tw-passagedata pid="23" name="goes black" tags="" position="759,1552" size="100,100">You slowly open your eyes, realizing you&#39;re lying in the dirt. You stand up and brush the dirt off your clothes. 
+&lt;script&gt;changeImage(&quot;foyer&quot;)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="swings open" tags="" position="761,1402" size="100,100">As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].
+
+&lt;script&gt;changeImage(undefined)&lt;/script&gt;</tw-passagedata><tw-passagedata pid="23" name="goes black" tags="" position="759,1552" size="100,100">You slowly open your eyes, realizing you&#39;re lying in the dirt. You stand up and brush the dirt off your clothes. 
 
 In front of you is a pristine house behind an immaculately-manicured lawn. You appear to be holding the title deed to it.
 
