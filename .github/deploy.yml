@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - new-flow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Go 1.13
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.x
+
+      - name: build Twine
+        run: |
+          go get github.com/tmedwards/tweego
+          export PATH=$PATH:$(go env GOPATH)/bin
+          npm run build-site
+
+      - name: Mirror to /mysterymansion folder (necessary for the MS.com link)
+        run: rsync -Rr . ./mysterymansion
+
+      - name: Deploy (JUST FOR TESTING)
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GH_PAT }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./
