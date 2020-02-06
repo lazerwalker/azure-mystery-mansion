@@ -1,0 +1,464 @@
+:: StoryTitle
+Azure Mystery Mansion
+
+
+:: StoryData
+{
+	"ifid": "89A5D9EC-3A86-4346-AEFD-080DA5AC7F04",
+	"format": "Harlowe",
+	"format-version": "3.1.0",
+	"start": "Outside",
+	"zoom": 1
+}
+
+
+:: Story Stylesheet [stylesheet]
+h1 {
+  /* What Twine's CSS has set for h2*/
+  /* (We changed it to an h1 for accessibility purposes) */
+  font-size: 2.25em; 
+}
+
+footer {
+  margin: auto;
+  margin-top: 10em;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.small {
+  font-size: 0.7em;
+}
+
+#image {
+  margin-left: 1vw;
+  width: 100%;
+}
+#logo {
+  margin-left: 1vw;
+  margin-top: -1vw;
+}
+
+
+tw-link::selection {
+	background: none;
+}
+
+tw-story {
+  padding: 5% 3% !important;
+  font-family: 'Segoe UI';
+}
+
+tw-sidebar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  tw-passage {
+    margin-left: 46vw;
+  }
+  
+  #image {
+    float: left;
+    margin-left: -43vw;
+	width: 40vw;
+	}
+  
+  #logo {
+	float: left;
+    margin-left: -48vw;
+    margin-top: -12em;
+  }
+
+  footer {
+	margin-left: -44vw;
+}
+
+
+:: Story JavaScript [script]
+document.body.setAttribute('lang', 'en')
+
+window.changeImage = function (image) {
+		if (!image) {
+			console.log("Unsetting image")
+			document.getElementById("image").style.visibility = "hidden";
+			return
+		}
+	
+    console.log("Changing image to " + image);
+    document.getElementById("image").src = "mysterymansion/images/" + image + ".jpg";
+    document.getElementById("image").style.visibility = "visible";
+}
+
+window.loadLogo = function () {
+    document.getElementById("logo").src = "mysterymansion/images/logo.png";
+} 
+
+var url = "https://lazerwalker.com/playfab-twine/index.js";
+$(function () {
+    $.getScript(url,
+        (data, textStatus, jqxhr) => {
+					const trackedVariables = ["numKeys", "copperKey", "silverKey", "goldenKey", "redKey", "blueKey", "greenKey", "emeraldKey", "roseKey"]
+					setupPlayfab("2F970", trackedVariables, State)
+        }
+    )
+})
+
+
+:: Outside {"position":"575,250","size":"100,100"}
+You are standing in an open field in front of an old brick house. It seems to have been abandoned many years ago.
+
+You hold in your hands an [[envelope]].
+
+There is a small [[mailbox|Mailbox]] here.
+
+On the grass, there is a (link-reveal: "rusty old car.")[ You jiggle the driver-side handle, but the door is locked. Through the window, you spy a few cassette tapes sitting on the dashboard and some crumpled fast-food bags on the floor. Nothing of use.]
+
+You can climb up the creaky wooden steps to the [[front porch|Porch]].
+
+<script>changeImage("porch")</script>
+
+
+:: Porch {"position":"500,401","size":"100,100"}
+A rickety front porch.
+
+In front of you is a large [[door.|Front Door]]
+
+To your left are a few [[lounge chairs|Lounge Chairs]], and a few large [[potted plants|Ferns]].
+
+Next to the door is a curious-looking [[plastic duck|Christmas Duck)]].
+
+[[Go back down the stairs.|Outside]]
+<script>changeImage("frontdoor")</script>
+
+
+:: Front Door {"position":"500,549","size":"100,100"}
+You stare up at an imposing set of double doors.
+
+Where you would expect to see a keyhole, there is an ornate mechanism with two rotating dials. The first dial displays numbers, and the second rotates through a set of odd symbols.
+
+
+Number: (cycling-link: bind $frontDoorFirst, "0","1", "2", "3", "4", "5", "6", "7", "8", "9") 
+Symbol: (cycling-link: bind $frontDoorSecond, "⏹ (square)", "🔼 (triangle)", "⏺ (circle)")
+
+(event: when $frontDoorFirst is "4" and $frontDoorSecond is "⏺ (circle)")[You hear a satisfying click sound. (set: $frontDoorOpen to true)]
+
+[[Try the door handle|Front Door Handle]]
+
+[[Go back.|Porch]]
+
+<script>changeImage("frontdoor")</script>
+
+
+:: Front Door Handle {"position":"476,700","size":"100,100"}
+(if: $frontDoorOpen is true)[You need to put your weight into it, but the front door slowly opens with a loud creeeeaaaak. [[Go inside.|Foyer]]]
+
+(else: )[You pull on the door handle, but it's locked shut. [[Go back|Porch]].]
+
+<script>changeImage("frontdoor")</script>
+
+
+:: Foyer {"position":"500,876","size":"100,100"}
+A grand foyer, with a spiral staircase. The whole thing is covered in a fine layer of dust.
+
+(unless: $silverKey is true)[Sitting on a small table next to the door is a  (link-reveal: "silver key.")[(set: $numKeys to $numKeys + 1)(set: $silverKey to true) You take it. You now have $numKeys keys.]]
+(unless: $copperKey is true)[
+You are still holding an [[envelope|envelope-foyer]].
+]
+On the wall is a [[painting]].
+
+To the left are two doors leading to an [[office]] and the [[library]].
+
+To the right is the [[dining room]].
+
+At the top of the stairs is a [[hallway]].
+
+Behind the staircase is a small door leading to the [[salon]].
+
+<script>changeImage("foyer")</script>
+
+
+:: Mailbox {"position":"365,411","size":"100,100"}
+A few bills, some free magazines, nothing of any importance. Should you really be reading through someone else's mail?
+
+Looking inside the mailbox, you spy a (link-reveal: "sticky note.")[ 
+
+The sticky note's letterhead has a <a class="enchantment-link" target="_blank" href="https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker">Microsoft Learn</a> logo. Somebody's scribbled a circle symbol (⏺), a <a class="enchantment-link" target="_blank" href="https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals?WT.mc_id=mysterymansion-playfab-emwalker">URL</a>, and the question "how many skills are measured?" ]
+
+[[Go back|Outside]].
+<script>changeImage("porch")</script>
+
+
+:: Christmas Duck) {"position":"620,559","size":"100,100"}
+The plastic duck has a green wreath and red bow around its neck. How odd.
+
+(link: "Pick it up.")[You pick up the duck, covering your fingers in dust. Attached to the bottom of the duck is a (link-reveal: "sticky note.")[ 
+
+The sticky note's letterhead has a <a class="enchantment-link" target="_blank" href="https://docs.microsoft.com/en-us/learn/certifications?WT.mc_id=mysterymansion-playfab-emwalker">Microsoft Learn</a> logo. Somebody's scribbled a circle symbol (⏺), a <a class="enchantment-link" target="_blank" href="https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals?WT.mc_id=mysterymansion-playfab-emwalker">URL</a>, and the question "how many skills are measured?" ]]
+
+[[Go back|Porch]].
+
+<script>changeImage("frontdoor")</script>
+
+
+:: Lounge Chairs {"position":"380,559","size":"100,100"}
+They're covered in cobwebs. Best leave these for the spiders to sit in.
+
+[[Go back|Porch]].
+
+<script>changeImage("frontdoor")</script>
+
+
+:: Ferns {"position":"738,559","size":"100,100"}
+For how abandoned the house looks, the plants appear to be thriving.
+
+Nestled into the dirt of one of them, you see what appears to be the corner of a (link-reveal: "sticky note.")[
+
+After pulling it out and wiping the dirt off, you see that the sticky note's letterhead has a <a target="_blank" href="https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker" class="enchantment-link">Microsoft Learn</a> logo. Somebody's scribbled a circle symbol (⏺), a <a class="enchantment-link" target="_blank" href="https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals?WT.mc_id=mysterymansion-playfab-emwalker">URL</a>, and the question "how many skills are measured?" ]
+
+[[Go back|Porch]].
+
+<script>changeImage("frontdoor")</script>
+
+
+:: painting {"position":"300,950","size":"100,100"}
+A faded oil painting with a gaunt-looking person.
+
+His eyes appear to follow you as you walk around the room.
+
+Stuck on the bottom corner of the painting is a (link-reveal: "sticky note.")[ 
+
+The sticky note's letterhead has a <a class="enchantment-link" target="_blank" href="https://microsoft.com/learn">Microsoft Learn</a> logo. Scribbled on it is the text "which app IDEs (Integrated Developer Environments) are supported on Azure?" and a <a class="enchantment-link" target="_blank" href="https://docs.microsoft.com/learn/modules/prepare-your-dev-environment-for-azure-development/index?WT.mc_id=mysterymansion-playfab-emwalker">URL</a>.]
+
+Next to the painting is a set of buttons.
+
+(cycling-link: bind $eclipse, "Eclipse (unpressed)", "Eclipse (pressed)") 
+(cycling-link: bind $intellij, "IntelliJ IDEA (unpressed)", "IntelliJ IDEA (pressed)")
+(cycling-link: bind $vscode, "Visual Studio Code (unpressed)", "Visual Studio Code (pressed)")
+(cycling-link: bind $vs, "Visual Studio (unpressed)", "Visual Studio (pressed)")
+
+
+(unless: $goldenKey is true)[(event: when $eclipse is "Eclipse (pressed)" and $intellij is "IntelliJ IDEA (pressed)" and $vscode is "Visual Studio Code (pressed)" and $vs is "Visual Studio (pressed)")[With a loud creak, the painting swings towards you to reveal a secret compartment in the wall!
+
+Sitting in the compartment is a (link-reveal: "golden key.")[(set: $numKeys to $numKeys + 1)(set: $goldenKey to true) You take it. You now have $numKeys keys.]]]
+
+[[Go back|Foyer]].
+
+<script>changeImage("painting")</script>
+
+
+:: office {"position":"698,925","size":"100,100"}
+A dusty office with aging furniture.
+
+On the desk is a (link-reveal: "computer.")[
+ 
+ It's a big beige box with an old CRT screen.
+ 
+ There are a few icons on the desktop. A trash can, and icons saying "GitHub", "Azure DevOps", "SharePoint", and "Dropbox".
+ 
+(cycling-link: bind $githubInTrash, "Drag GitHub to Trash", "Restore GitHub from Trash") 
+(cycling-link: bind $devopsInTrash, "Drag Azure DevOps to Trash", "Restore Azure DevOps from Trash")
+(cycling-link: bind $sharepointInTrash, "Drag SharePoint to Trash", "Restore SharePoint from Trash")
+(cycling-link: bind $dropboxInTrash, "Drag Dropbox to Trash", "Restore Dropbox from Trash")(unless: $blueKey is true)[
+(event: when $githubInTrash is "Drag GitHub to Trash" and $devopsInTrash is "Drag Azure DevOps to Trash" and $sharepointInTrash is "Restore SharePoint from Trash" and $dropboxInTrash is "Restore Dropbox from Trash")[
+A trumpet sound plays from the computer's tinny speakers as the CD-ROM drive pops open to reveal a (link-reveal: "blue key.")[(set: $numKeys to $numKeys + 1)(set: $blueKey to true) You take it. You now have $numKeys keys.]
+
+The computer's screen flickers and switches to reveal a cryptic error message on a blue background.]]
+ 
+ Sticking to the bottom of the monitor is a (link-reveal: "sticky note.")[
+ 
+ The sticky note's letterhead has a <a target="_blank" href="https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker" class="enchantment-link">Microsoft Learn</a> logo. Scribbled on it is the text "delete all invalid automated deployment sources" and a <a target="_blank" class="enchantment-link" href="https://docs.microsoft.com/learn/modules/host-a-web-app-with-azure-app-service/index?WT.mc_id=mysterymansion-playfab-emwalker">URL</a>. ]
+]
+
+[[Go back|Foyer]].
+
+<script>changeImage("office")</script>
+
+
+:: hallway {"position":"494,1017","size":"100,100"}
+An unstable-looking ladder leads up to a locked attic panel with [[8 keyholes|attic door]].
+
+[[go back down|Foyer]].
+
+<script>changeImage()</script>
+
+
+:: child's bedroom {"position":"266,1235","size":"100,100"}
+At the foot of a large four-poster bed is an open chest, likely meant to store a child's playthings.
+
+Some toys lay strewn across the floor.
+
+(cycling-link: bind $firstToy, "Put \"push notifications\" alphabet blocks in toychest.", "Take \"push notifications\" alphabet blocks out of toychest.") 
+(cycling-link: bind $secondToy, "Put \"offline sync\" teddy bear in toychest.", "Take \"offline sync\" teddy bear out of toychest.")
+(cycling-link: bind $thirdToy, "Put \"authentication\" labyrinth in toychest", "Take \"authentication\" labyrinth out of toychest.")(unless: $greenKey is true)[(event: when $firstToy is "Take \"push notifications\" alphabet blocks out of toychest." and $secondToy is "Take \"offline sync\" teddy bear out of toychest." and $thirdToy is "Take \"authentication\" labyrinth out of toychest.")[
+As you drop the third toy in the chest, you notice something you're fairly sure wasn't there before. It's a (link-reveal: "green key!")[(set: $numKeys to $numKeys + 1)(set: $greenKey to true) You take it. You now have $numKeys keys.]]]
+
+On top of the open toychest is a (link-reveal: "sticky note.")[
+
+The sticky note's letterhead has a <a target="_blank" href="https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker" class="enchantment-link">Microsoft Learn</a> logo. Scribbled on it is the question "Which features of Mobile Apps for Azure App Service might you use to build a mobile chat application that lets users create profiles, add friends, and send messages to contacts?" along with a <a target="_blank" href="https://docs.microsoft.com/learn/modules/intro-to-mobile-app-service/?WT.mc_id=mysterymansion-playfab-emwalker" class="enchantment-link">URL</a>. 
+]
+
+<script>changeImage("bedroom")</script>
+
+[[go back|hallway]].
+
+
+:: library {"position":"876,925","size":"100,100"}
+(set: $typewriter1 to "________")
+(set: $typewriter2 to "________")
+(set: $typewriter3 to "________")
+
+An interesting library. Books line the walls.
+On a large mahogany desk lies a vintage (link-reveal: "typewriter.")[
+    
+    Somebody has typed part of a sentence on a sheet of paper, but three words are missing. It looks like you must fill them in.
+        
+    "Azure Container Registry enables you to store (link-repeat: "|typewriter1>[$typewriter1]")[(put: (prompt: "What do you type?", "") into $typewriter1)(if: $typewriter1 is "")[(set: $typewriter1 to "________")](replace: ?typewriter1)[$typewriter1]] images in the cloud, in an Azure storage account. (link-repeat: "|typewriter2>[$typewriter2]")[(put: (prompt: "What do you type?", "") into $typewriter2)(if: $typewriter2 is "")[(set: $typewriter2 to "________")](replace: ?typewriter2)[$typewriter2]] is an important reason to choose Container Registry instead of Docker Hub. Container Registry is highly (link-repeat: "|typewriter3>[$typewriter3]")[(put: (prompt: "What do you type?", "") into $typewriter3)(if: $typewriter3 is "")[(set: $typewriter3 to "________")](replace: ?typewriter3)[$typewriter3]], providing enhanced throughput for Docker pulls that can span many nodes concurrently."
+](unless: $emeraldKey is true)[(event: when ($typewriter1 is "Docker" or $typewriter2 is "docker") and ($typewriter2 is "Security" or $typewriter2 is "security") and $typewriter3 is "scalable")[
+
+You feel an odd lurching sensation in the room. As you look over at the bookshelf, a single book is (link-reveal: "sticking out from the shelf.")[
+Pulling it out and holding it in your hands, you realize it isn't a real book. Upon opening the cover, the inside is revealed to be a hollow compartment containing an (link-reveal: "emerald key.")[(set: $numKeys to $numKeys + 1)(set: $emeraldKey to true) You take it. You now have $numKeys keys.]]]]
+
+Next to the typewriter is a (link-reveal: "sticky note.")[ 
+The sticky note's letterhead has a <a target="_blank" href="https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker" class="enchantment-link">Microsoft Learn</a> logo. Scribbled on it is a <a target="_blank" href="https://docs.microsoft.com/en-us/learn/modules/deploy-run-container-app-service/index" class="enchantment-link">URL</a>. ]
+
+[[Go back|Foyer]].
+<script>changeImage("library")</script>
+
+
+:: dining room {"position":"91,928","size":"100,100"}
+(set: $numBeef to 0)(set: $numPotatoes to 0)(set: $numSalad to 0)
+A resplendent feast is set on a long dining table that seems to go on for miles.
+
+There is a buffet of food: a platter of sliced prime rib, a crisp green salad, and boiled potatoes.
+
+In front of you is a single place setting with |beefServings>[$numBeef] helpings of beef, |saladServings>[$numSalad] servings of salad, and |potatoServings>[$numPotatoes] potatoes.
+
+(link-repeat: "Add prime rib to plate")[(set: $numBeef to $numBeef + 1)(replace: ?beefServings)[$numBeef]]
+(link-repeat: "Add salad to plate")[(set: $numSalad to $numSalad + 1)(replace: ?saladServings)[$numSalad]]
+(link-repeat: "Add potatoes to plate")[(set: $numPotatoes to $numPotatoes + 1)(replace: ?potatoServings)[$numPotatoes]](unless: $redKey is true)[(event: when $numPotatoes is 4)[
+
+As you pick up the fourth — and last — potato from the bowl, you spot something at the bottom of the now-empty vessel. Is that a (link-reveal: "red key?")[(set: $numKeys to $numKeys + 1)(set: $redKey to true) You take it. You now have $numKeys keys.]]]
+
+Above the dining table is an elaborate chandelier with dozens of candles dimly illuminating the room. They seem to be arranged in a (link-reveal: "peculiar arrangement.")[
+
+The candles are grouped into clusters of 8. Within each cluster, some candles are lit and some are not.
+
+A "0" represents an unlit candle, and a "1" a lit candle.
+
+01000110 01001111 01010101 01010010 
+01010000 01001111 01010100 01000001 
+01010100 01001111 01000101 01010011
+
+]
+
+
+At the head of the table is a (link-reveal: "sticky note.")[ 
+
+The sticky note's letterhead has a <a target="_blank" class="enchantment-link" href="https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker">Microsoft Learn</a> logo. There's a note scribbled on it: "What food should I put on this plate? I'm so bad at making binary choices like this, maybe something in the room will light the way for me." ]
+
+[[Go back|Foyer]].
+
+<script>changeImage("diningroom")</script>
+
+
+:: salon {"position":"1101,898","size":"100,100"}
+(set: $num1 to 0)(set: $num2 to 0)(set: $num3 to 0)(set: $num4 to 0)(set: $num5 to 0)(set: $num6 to 0)(set: $num7 to 0)(set: $num8 to 0)(set: $num9 to 0)(set: $num10 to 0)
+
+A small, but tastefully designed, living room.
+
+On the table is a (link-reveal: "sticky note.")[
+
+The sticky note's letterhead has a <a target="_blank" href="https://microsoft.com/learn?WT.mc_id=mysterymansion-playfab-emwalker" class="enchantment-link">Microsoft Learn</a> logo. There's some text scribbled on it: "I can never remember the right phone number to call! I must write myself a computer program to recall it, it's just Pi to the first ten decimal places."
+]
+
+Next to a very ornate couch is a table with a vintage rotary telephone on it.
+
+(link-repeat: "1")[(unless: $num1 >= 9)[(set: $num1 to $num1 + 1)(replace: ?firstDigit)[$num1]]] (link-repeat: "2")[(unless: $num2 >= 9)[(set: $num2 to $num2 + 1)(replace: ?secondDigit)[$num2]]] (link-repeat: "3")[(unless: $num3 >= 9)[(set: $num3 to $num3 + 1)(replace: ?thirdDigit)[$num3]]]
+(link-repeat: "4")[(unless: $num4 >= 9)[(set: $num4 to $num4 + 1)(replace: ?fourthDigit)[$num4]]] (link-repeat: "5")[(unless: $num5 >= 9)[(set: $num5 to $num5 + 1)(replace: ?fifthDigit)[$num5]]] (link-repeat: "6")[(unless: $num6 >= 9)[(set: $num6 to $num6 + 1)(replace: ?sixthDigit)[$num6]]]
+(link-repeat: "7")[(unless: $num7 >= 9)[(set: $num7 to $num7 + 1)(replace: ?seventhDigit)[$num7]]] (link-repeat: "8")[(unless: $num8 >= 9)[(set: $num8 to $num8 + 1)(replace: ?eigthDigit)[$num8]]] (link-repeat: "9")[(unless: $num9 >= 9)[(set: $num9 to $num9 + 1)(replace: ?ninthDigit)[$num9]]]
+      	(link-repeat: "0")[(unless: $num10 >= 9)[(set: $num10 to $num10 + 1)(replace: ?tenthDigit)[$num10]]] 
+	  
+	  You can also (link-repeat: "Hang Up")[(set: $num1 to 0)(replace: ?firstDigit)[$num1](set: $num2 to 0)(replace: ?secondDigit)[$num2](set: $num3 to 0)(replace: ?thirdDigit)[$num3](set: $num4 to 0)(replace: ?fourthDigit)[$num4](set: $num5 to 0)(replace: ?fifthDigit)[$num5](set: $num6 to 0)(replace: ?sixthDigit)[$num6](set: $num7 to 0)(replace: ?seventhDigit)[$num7](set: $num8 to 0)(replace: ?eigthDigit)[$num8](set: $num9 to 0)(replace: ?ninthDigit)[$num9](set: $num10 to 0)(replace: ?tenthDigit)[$num10]].
+
+  
+You have entered |firstDigit>[$num1]|secondDigit>[$num2]|thirdDigit>[$num3]|fourthDigit>[$num4]|fifthDigit>[$num5]|sixthDigit>[$num6]|seventhDigit>[$num7]|eigthDigit>[$num8]|ninthDigit>[$num9]|tenthDigit>[$num10].
+
+(unless: $roseKey is true)[(event: when $num1 is 3 and $num2 is 1 and $num3 is 4 and $num4 is 1 and $num5 is 5 and $num6 is 9 and $num7 is 2 and $num8 is 6 and $num9 is 5 and $num10 is 3)
+
+[You hear an unearthly noise, and then the phone line immediately goes dead.
+
+A drawer opens on the endtable the phone is standing on, revealing a (link-reveal: "rose key.")[(set: $numKeys to $numKeys + 1)(set: $roseKey to true) You take it. You now have $numKeys keys.]]]
+
+<!--314 159 265 3-->
+
+[[Go back|Foyer]].
+
+<script>changeImage("salon")</script>
+
+
+:: attic door {"position":"762,1250","size":"100,100"}
+(if: $numKeys is 7)[
+	You put all eight keys into the correct keyholes. The attic door [[swings open]] with a loud creak.
+]
+
+(else:)[You only have $numKeys keys. You need 7.]
+
+[[go back|hallway]].
+
+<script>changeImage()</script>
+
+
+:: envelope {"position":"839,270","size":"100,100"}
+It's from your Uncle Bill. It says that the house is yours, if you can collect all 7 keys and collect the deed from the attic.
+
+(unless: $copperKey is true)[Inside the envelope is a  (link-reveal: "copper key")[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  7 keys he mentioned.]
+
+[[Go back|Outside]].
+<script>changeImage("porch")</script>
+
+
+:: Privacy Note [footer] {"position":"725,125","size":"100,100"}
+<hr/><span class="small"><a target="_blank" class="enchantment-link" href="http://go.microsoft.com/fwlink/?LinkId=521839">Privacy and Cookies</a> | <a class="enchantment-link" href="https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx" target="_blank">Terms of Use</a> | <a class="enchantment-link" href="mailto:ammteam@microsoft.com">Support</a> | © 2019 Microsoft Corporation. All rights reserved.</span>
+
+
+:: Image [header] {"position":"900,125","size":"100,100"}
+<h1>Welcome to the Azure Mystery Mansion</h1>
+<img id="image" alt="Illustration of the scene being described in the game"/>
+
+
+:: envelope-foyer {"position":"790,737","size":"100,100"}
+It's from your Uncle Bill. It says that the house is yours, if you can collect all 8 keys and collect the deed from the attic.
+
+(unless: $copperKey is true)[Inside the envelope is a  (link-reveal: "copper key")[(set: $numKeys to $numKeys + 1)(set: $copperKey to true). You take it. You now have $numKeys keys]. You suspect this is the first of the  8 keys he mentioned.]
+
+[[Go back|Foyer]].
+<script>changeImage("foyer")</script>
+
+
+:: swings open {"position":"761,1402","size":"100,100"}
+As you climb up into the attic, a burst of cold air comes over you. You hear the sound of a thousand voices whispering, and then suddenly everything [[goes black]].
+
+<script>changeImage(undefined)</script>
+
+
+:: goes black {"position":"759,1552","size":"100,100"}
+You slowly open your eyes, realizing you're lying in the dirt. You stand up and brush the dirt off your clothes. 
+
+In front of you is a pristine house behind an immaculately-manicured lawn. You appear to be holding the title deed to it.
+
+What exactly just happened?
+
+<script>changeImage("badge")</script>
+---
+
+You have earned the deeds to the the Azure Mystery Mansion!
+
+<a class="enchantment-link" target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faka.ms/mysterymansion&text=I%20completed%20the%20Azure%20Mystery%20Mansion%20and%20you%20can,%20too%20🏚%20%23AzureMysteryMansion">Brag about it on Twitter</a>!
+
+
+:: logo [header] {"position":"396,146","size":"100,100"}
+<img id="logo" alt="Microsoft logo" />
+<script>loadLogo()</script>
+
+
