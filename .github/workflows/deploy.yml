@@ -32,9 +32,9 @@ jobs:
           cp index.html mysterymansion
           cp -r images mysterymansion
 
-      - name: Deploy (JUST FOR TESTING)
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GH_PAT }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./
+      - name: "Deploy to Azure WebApp"
+        uses: azure/webapps-deploy@v1
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.PORTAL_PUBLISH_PROFILE }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
