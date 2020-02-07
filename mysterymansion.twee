@@ -86,12 +86,12 @@ window.changeImage = function (image) {
 		}
 	
     console.log("Changing image to " + image);
-    document.getElementById("image").src = "images/" + image + ".jpg";
+    document.getElementById("image").src = "mysterymansion/images/" + image + ".jpg";
     document.getElementById("image").style.visibility = "visible";
 }
 
 window.loadLogo = function () {
-    document.getElementById("logo").src = "images/logo.png";
+    document.getElementById("logo").src = "mysterymansion/images/logo.png";
 } 
 
 var url = "https://lazerwalker.com/playfab-twine/index.js";

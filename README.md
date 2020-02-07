@@ -19,7 +19,7 @@ From here, you should be able to just run `tweego` as a CLI tool.
 Once you have a functioning Tweego binary, you're good to go!
 
 - The game itself lives in `mysterymansion.twee`. I personally use VS Code (you can download a Twee syntax highlighter).
-- To live-compile the game, run `tweego -w mysterymansion.twee -o index.html`. Run a web server of your choice (e.g. `python -m SimpleHTTPServer` from within the project dir), and index.html will update whenever you save the Twee file
+- To live-compile the game, run `tweego -w mysterymansion.twee -o index.html`. Run a web server of your choice (e.g. `python -m SimpleHTTPServer` from within the project dir), and index.html will update whenever you save the Twee file. It's possible images will be broken; I get that's annoying, but it won't be broken on production.
 - If you would rather edit in the visual Twine editor, you can import that `index.html` file into a downloaded copy of Twine 2. You should convert it back into a Twee file before committing changes to git; `tweego -d index.html -o mysterymansion.twee` will do that.
 - Pull request in your changes!
 - When your code hits master on GitHub, a GitHub Action is responsible for compiling the Twee file into a website, doing some file munging to make our microsoft.com redirect work properly, and then deploy the latest version of the code to Azure.
