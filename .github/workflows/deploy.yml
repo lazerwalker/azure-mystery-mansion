@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  AZURE_WEBAPP_NAME: "mysterymansion"
+  NODE_VERSION: "10.x"
+  AZURE_WEBAPP_PACKAGE_PATH: "./"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Go 1.13
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.x
+
+      - name: build Twine
+        run: |
+          go get github.com/tmedwards/tweego
+          export PATH=$PATH:$(go env GOPATH)/bin
+          tweego mysterymansion.twee -o index.html
+
+      - name: Mirror to /mysterymansion folder (necessary for the MS.com link)
+        run: |
+          mkdir mysterymansion
+          cp index.html mysterymansion
+          cp -r images mysterymansion
+
+      - name: "Deploy to Azure WebApp"
+        uses: azure/webapps-deploy@v1
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.PORTAL_PUBLISH_PROFILE }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
