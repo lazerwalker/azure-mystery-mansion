@@ -5,6 +5,10 @@ on:
     branches:
       - new-flow
 
+env:
+  AZURE_WEBAPP_NAME: "mysterymansion"
+  NODE_VERSION: "10.x"
+
 jobs:
   build:
     runs-on: ubuntu-latest
