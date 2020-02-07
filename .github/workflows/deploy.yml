@@ -23,7 +23,9 @@ jobs:
           tweego mysterymansion.twee -o index.html
 
       - name: Mirror to /mysterymansion folder (necessary for the MS.com link)
-        run: rsync -Rr . ./mysterymansion
+        run: |
+          mkdir ./mysterymansion
+          rsync -Rr . ./mysterymansion
 
       - name: Deploy (JUST FOR TESTING)
         uses: peaceiris/actions-gh-pages@v2
