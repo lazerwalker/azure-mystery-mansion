@@ -24,12 +24,13 @@ jobs:
 
       - name: Mirror to /mysterymansion folder (necessary for the MS.com link)
         run: |
-          mkdir ./mysterymansion
-          rsync -Rr . ./mysterymansion
+          mkdir mysterymansion
+          cp index.html mysterymansion
+          cp -r images mysterymansion
 
       - name: Deploy (JUST FOR TESTING)
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GH_PAT }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./
+          PUBLISH_DIR: ./dist
