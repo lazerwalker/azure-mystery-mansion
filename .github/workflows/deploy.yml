@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - new-flow
+      - master
 
 env:
   AZURE_WEBAPP_NAME: "mysterymansion"
